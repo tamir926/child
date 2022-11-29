@@ -3,9 +3,20 @@
 <? require_once("views/init.php"); ?>
 <link rel="stylesheet" href="assets/css/vendor/OverlayScrollbars.min.css" />
 
-<script type="text/javascript" src="assets/js/jquery.mousewheel.min.js"></script>
+<style type="text/css">
+    
+    
+  div[rel='scrollcontent1'] { width: 100%;}
+  
+  .scrollcontent1-content { align-items: center !important;} /* for vertical content, no explicit width is required for inner DIV */
+  .scrollcontent1-bar { width: 5px; background: #fffeda; border-radius: 4px; box-shadow: inset 0px 0px 5px #444444; overflow: hidden; }
+  .scrollcontent1-drag { background: #ad5134; border-radius: 4px; cursor: pointer; }
+  
 
-<script src="assets/js/slickcustomscroll.js"></script>
+    
+</style>
+<script src="assets/js/base/loader.js"></script>
+
 
 
 <body>
@@ -15,87 +26,87 @@
         <img src="assets/img/logo.png" class="logo-img w-80">
 
         <div class="card mt-card bg-secondary text-white align-items-center text-center rounded hv-80" rel="scrollcontent1">
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card">
+          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
             <img src="assets/img/home.png" class="w-100">
           </div>
           Нүүр
 
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card">
+          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
             <img src="assets/img/home.png" class="w-100">
           </div>
           Нүүр
 
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card">
+          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
             <img src="assets/img/home.png" class="w-100">
           </div>
           Нүүр
 
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card">
+          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
             <img src="assets/img/home.png" class="w-100">
           </div>
           Нүүр
 
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card">
+          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
             <img src="assets/img/home.png" class="w-100">
           </div>
           Нүүр
 
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card">
+          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
             <img src="assets/img/home.png" class="w-100">
           </div>
           Нүүр
 
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card">
+          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
             <img src="assets/img/home.png" class="w-100">
           </div>
           Нүүр
 
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card">
+          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
             <img src="assets/img/home.png" class="w-100">
           </div>
           Нүүр
 
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card">
+          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
             <img src="assets/img/home.png" class="w-100">
           </div>
           Нүүр
 
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card">
+          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
             <img src="assets/img/home.png" class="w-100">
           </div>
           Нүүр
 
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card">
+          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
             <img src="assets/img/home.png" class="w-100">
           </div>
           Нүүр
 
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card">
+          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
             <img src="assets/img/home.png" class="w-100">
           </div>
           Нүүр
 
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card">
+          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
             <img src="assets/img/home.png" class="w-100">
           </div>
           Нүүр
 
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card">
+          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
             <img src="assets/img/home.png" class="w-100">
           </div>
           Нүүр
 
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card">
+          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
             <img src="assets/img/home.png" class="w-100">
           </div>
           Нүүр
 
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card">
+          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
             <img src="assets/img/home.png" class="w-100">
           </div>
           Нүүр
 
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card">
+          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
             <img src="assets/img/home.png" class="w-100">
           </div>
           Нүүр
@@ -358,6 +369,11 @@
     <script src="assets/js/vendor/chartjs-plugin-datalabels.js"></script>
 
     <script src="assets/js/vendor/chartjs-plugin-streaming.min.js"></script>
+
+    <script type="text/javascript" src="assets/js/jquery.mousewheel.min.js"></script>
+
+    <script src="assets/js/slickcustomscroll.js"></script>
+
 
     <!-- Vendor Scripts End -->
 
