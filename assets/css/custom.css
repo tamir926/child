@@ -1,0 +1,13 @@
+body {background:#F2F5FE;}
+img.profile {height: 40px; width: 40px; border-radius: 20px;}
+.card-top { 
+}
+.card-top *{
+    font-size: 20px;    
+    color: ;
+    line-height: 40px;
+}
+.user-menu {background-color: #F2F5FE;}
+
+.hv-20 {height: 20vh;}
+.hv-80 {height: 80vh; overflow-y: auto;}
