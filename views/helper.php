@@ -1,4 +1,4 @@
-<?
+<?php
 	if (!function_exists("protect"))
 	{
 		function protect($input)
@@ -22,11 +22,11 @@ if (!function_exists("settings"))
 		global $conn;
 		if (is_int($id_or_shortname))
 			$sql = "SELECT *FROM settings WHERE id='$id_or_shortname' LIMIT 1";
-		else 
+		else
 			$sql = "SELECT *FROM settings WHERE shortname='$id_or_shortname' LIMIT 1";
 
 		$result = mysqli_query($conn,$sql);
-		
+
 		if (mysqli_num_rows($result)==1)
 			{
 				$data = mysqli_fetch_array($result);
@@ -43,9 +43,9 @@ if (!function_exists("parameters"))
 	{
 		global $conn;
 			$sql = "SELECT *FROM parameters WHERE name='$param_name' LIMIT 1";
-	
+
 		$result = mysqli_query($conn,$sql);
-		
+
 		if (mysqli_num_rows($result)==1)
 			{
 				$data = mysqli_fetch_array($result);
@@ -114,7 +114,7 @@ if (!function_exists("customer"))
 		global $conn;
 		if ($guest_or_user==1) $sql_temp = "SELECT *FROM guest WHERE guest_id='$customer_id' LIMIT 1";
 		if ($guest_or_user==2) $sql_temp = "SELECT *FROM user WHERE id='$customer_id' LIMIT 1";
-		
+
 		$result_temp = mysqli_query($conn,$sql_temp);
 		if (mysqli_num_rows($result_temp)==1)
 			{
@@ -165,7 +165,7 @@ if (!function_exists("status"))
 				case "pending":return "Баталгаажсан";break;
 				case "later":return "Хойшлуулсан";break;
 				case "onway":return "Хүргэлтэнд";break;
-				case "cancel":return "Цуцлагдсан";break;				
+				case "cancel":return "Цуцлагдсан";break;
 				case "delivered":return "ХҮРГЭГДСЭН";break;
 				default: return $input; break;
 			}
@@ -200,7 +200,7 @@ if (! function_exists ('getRealIp'))
 
 if (!function_exists("resize_image"))
 {
-	function resize_image($file, $w, $h, $crop=FALSE) 
+	function resize_image($file, $w, $h, $crop=FALSE)
 	{
 		list($width, $height) = getimagesize($file);
 		$r = $width / $height;

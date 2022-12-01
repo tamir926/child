@@ -1,5 +1,13 @@
 DirectoryIndex index.php
 RewriteEngine On
 RewriteRule ^index?$ index.php
-
+RewriteRule ^home?$ home.php
+RewriteRule ^children?$ children.php
+RewriteRule ^lesson?$ lesson.php
+RewriteRule ^calendar?$ calendar.php
+RewriteRule ^child_family?$ child_family.php
+RewriteRule ^children/(.*) children.php?id=$1
+RewriteRule ^calendar/(.*) calendar.php?id=$1
+RewriteRule ^calendar.php/([0-9]+)/([0-9]+) calendar.php?id=$1&uid=$2
+RewriteRule ^finance?$ finance.php
 RewriteRule ^product?$ product.php

@@ -1,118 +1,22 @@
-<? require_once("config.php"); ?>
-<? require_once("views/helper.php"); ?>
-<? require_once("views/init.php"); ?>
+<?php require_once("config.php"); ?>
+<?php require_once("views/helper.php"); ?>
+<?php require_once("views/init.php"); ?>
 <link rel="stylesheet" href="assets/css/vendor/OverlayScrollbars.min.css" />
-
 <style type="text/css">
-    
-    
   div[rel='scrollcontent1'] { width: 100%;}
-  
   .scrollcontent1-content { align-items: center !important;} /* for vertical content, no explicit width is required for inner DIV */
   .scrollcontent1-bar { width: 5px; background: #fffeda; border-radius: 4px; box-shadow: inset 0px 0px 5px #444444; overflow: hidden; }
   .scrollcontent1-drag { background: #ad5134; border-radius: 4px; cursor: pointer; }
-  
-
-    
 </style>
 <script src="assets/js/base/loader.js"></script>
-
-
 
 <body>
   <div class="container-fluid h-100">
     <div class="row">
       <div class="col-lg-1 p-5 align-items-center text-center">
-        <img src="assets/img/logo.png" class="logo-img w-80">
-
-        <div class="card mt-card bg-secondary text-white align-items-center text-center rounded hv-80" rel="scrollcontent1">
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
-            <img src="assets/img/home.png" class="w-100">
-          </div>
-          Нүүр
-
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
-            <img src="assets/img/home.png" class="w-100">
-          </div>
-          Нүүр
-
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
-            <img src="assets/img/home.png" class="w-100">
-          </div>
-          Нүүр
-
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
-            <img src="assets/img/home.png" class="w-100">
-          </div>
-          Нүүр
-
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
-            <img src="assets/img/home.png" class="w-100">
-          </div>
-          Нүүр
-
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
-            <img src="assets/img/home.png" class="w-100">
-          </div>
-          Нүүр
-
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
-            <img src="assets/img/home.png" class="w-100">
-          </div>
-          Нүүр
-
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
-            <img src="assets/img/home.png" class="w-100">
-          </div>
-          Нүүр
-
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
-            <img src="assets/img/home.png" class="w-100">
-          </div>
-          Нүүр
-
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
-            <img src="assets/img/home.png" class="w-100">
-          </div>
-          Нүүр
-
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
-            <img src="assets/img/home.png" class="w-100">
-          </div>
-          Нүүр
-
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
-            <img src="assets/img/home.png" class="w-100">
-          </div>
-          Нүүр
-
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
-            <img src="assets/img/home.png" class="w-100">
-          </div>
-          Нүүр
-
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
-            <img src="assets/img/home.png" class="w-100">
-          </div>
-          Нүүр
-
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
-            <img src="assets/img/home.png" class="w-100">
-          </div>
-          Нүүр
-
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
-            <img src="assets/img/home.png" class="w-100">
-          </div>
-          Нүүр
-
-          <div class="menu-btn bg-primary p-1 w-30 rounded-sm mt-card mx-auto">
-            <img src="assets/img/home.png" class="w-100">
-          </div>
-          Нүүр
-        </div>
-
+        <?php require_once 'views/menu.php';?>
       </div>
+
       <div class="col-lg-11 ">
         <div class="card mt-card card-top">
           <div class="card-body">
@@ -320,14 +224,10 @@
                 </div>
               </div>
             </div>
-
-
-
           </div>
         </section>
 
-        
-        <div class="card mt-card">                    
+        <div class="card mt-card">
           <div class="card-body">
             <section class="scroll-section" id="areaChartTitle">
               <h2 class="small-title">Сайтын байдал</h2>
@@ -352,44 +252,24 @@
     <script src="assets/js/vendor/OverlayScrollbars.min.js"></script>
     <script src="assets/js/vendor/autoComplete.min.js"></script>
     <script src="assets/js/vendor/clamp.min.js"></script>
-
     <script src="assest/icon/acorn-icons.js"></script>
     <script src="assest/icon/acorn-icons-interface.js"></script>
-
     <script src="assets/js/cs/scrollspy.js"></script>
-
     <script src="assets/js/vendor/moment-with-locales.min.js"></script>
-
     <script src="assets/js/vendor/Chart.bundle.min.js"></script>
-
     <script src="assets/js/vendor/chartjs-plugin-rounded-bar.min.js"></script>
-
     <script src="assets/js/vendor/chartjs-plugin-crosshair.js"></script>
-
     <script src="assets/js/vendor/chartjs-plugin-datalabels.js"></script>
-
     <script src="assets/js/vendor/chartjs-plugin-streaming.min.js"></script>
-
     <script type="text/javascript" src="assets/js/jquery.mousewheel.min.js"></script>
-
     <script src="assets/js/slickcustomscroll.js"></script>
-
-
-    <!-- Vendor Scripts End -->
-
-    <!-- Template Base Scripts Start -->
     <script src="assets/js/base/helpers.js"></script>
     <script src="assets/js/base/globals.js"></script>
     <script src="assets/js/base/nav.js"></script>
     <script src="assets/js/base/search.js"></script>
     <script src="assets/js/base/settings.js"></script>
-    <!-- Template Base Scripts End -->
-    <!-- Page Specific Scripts Start -->
-
     <script src="assets/js/cs/charts.extend.js"></script>
-
     <script src="assets/js/plugins/charts.js"></script>
-
     <script src="assets/js/common.js"></script>
     <script src="assets/js/scripts.js"></script>
 
