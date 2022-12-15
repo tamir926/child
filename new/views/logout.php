@@ -6,5 +6,5 @@
 	unset($_SESSION['avatar']);
 	unset($_SESSION['timestamp']);
 	unset($_SESSION['logged']);
-	header('Location: login');
+	header('Location: ../login');
 ?>

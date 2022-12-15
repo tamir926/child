@@ -6,15 +6,18 @@ RewriteRule ^index?$ index.php
 RewriteRule ^login?$ login.php
 RewriteRule ^logining?$ views/logining.php
 RewriteRule ^logout?$ views/logout.php
+RewriteRule ^category?$ views/category.php
 
 RewriteRule ^dashboard?$ dashboard.php
 RewriteRule ^settings?$ settings.php
 RewriteRule ^news?$ news.php
-RewriteRule ^news_category?$ news_category.php
+RewriteRule ^irts?$ irts.php
+RewriteRule ^list?$ list.php
+RewriteRule ^category?$ category.php
 
 RewriteRule ^members?$ members.php
 RewriteRule ^position?$ position.php
-RewriteRule ^faqs?$ faqs.php
+RewriteRule ^lesson?$ lesson.php
 RewriteRule ^profile?$ profile.php
 RewriteRule ^courses?$ courses.php
 RewriteRule ^pages?$ pages.php
@@ -50,3 +53,6 @@ RewriteRule ^maps2?$ maps2.php
 RewriteRule ^tutorials?$ tutorials.php
 RewriteRule ^users?$ users.php
 RewriteRule ^avatars?$ avatars.php
+
+RewriteRule ^children/(.*) children.php?id=$1
+RewriteRule ^calendar/(.*) calendar.php?id=$1

@@ -22,6 +22,11 @@ mysqli_select_db($conn,$dbname);// (($dbname,$conn);
 $g_title="Child";
 $g_author="MaGnatE @ MindSymbol";
 $g_description="СӨБ-н бүртгэлийн систем";
-$g_icon="assets/img/favicon.png";
+$path = 'http://localhost/child/new/';
+$g_icon=$paty."assets/img/favicon.png";
 
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 ?>

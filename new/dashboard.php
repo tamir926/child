@@ -1,10 +1,10 @@
-<?
+<?php
 require_once("config.php");
 require_once("views/helper.php");
 require_once("views/login_check.php");
 require_once("views/init.php");
 ?>
-<?
+<?php
  $g_logged_name = $_SESSION['admin_name'];
  $g_logged_avatar = $_SESSION['admin_avatar'];
  $g_logged = $_SESSION['admin_logged'];
@@ -15,14 +15,14 @@ require_once("views/init.php");
     <div class="layout-wrapper layout-content-navbar ">
       <div class="layout-container">
         <!-- Menu -->
-        <? require_once("views/sidemenu.php");?>
+        <?php require_once("views/sidemenu.php");?>
         <!-- / Menu -->
 
         <!-- Layout container -->
         <div class="layout-page">
           <!-- Navbar -->
 
-          <? require_once("views/topmenu.php");?>
+          <?php require_once("views/topmenu.php");?>
 
           <!-- / Navbar -->
 

@@ -1,6 +1,6 @@
-<? require_once("config.php");?>
-<? require_once("views/helper.php");?>
-<? require_once("views/init.php");?>
+<?php require_once("config.php");?>
+<?php require_once("views/helper.php");?>
+<?php require_once("views/init.php");?>
 <link rel="stylesheet" href="assets/vendor/css/pages/page-auth.css" />
 
   <body>
@@ -12,7 +12,7 @@
         <div class="d-none d-lg-flex col-lg-7 p-0">
           <div class="auth-cover-bg auth-cover-bg-color d-flex justify-content-center align-items-center">
             <img
-              src="assets/img/illustrations/girl-doing-yoga-light.png"
+              src="assets/img/child.png"
               alt="auth-login-cover"
               class="img-fluid my-5 auth-illustration"
               data-app-light-img="illustrations/auth-login-illustration-light.png"

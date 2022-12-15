@@ -1,4 +1,4 @@
-<?
+<?php
    ob_start();
    session_start();
    require_once("../config.php"); 
@@ -59,5 +59,5 @@
          }
             
    }
-   else header("location: login?error=empty")
+   else header("location: login?error=empty");
 ?>
