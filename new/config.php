@@ -23,7 +23,7 @@ $g_title="Child";
 $g_author="MaGnatE @ MindSymbol";
 $g_description="СӨБ-н бүртгэлийн систем";
 $path = 'http://localhost/child/new/';
-$g_icon=$paty."assets/img/favicon.png";
+$g_icon=$path."assets/img/favicon.png";
 
 
 ini_set('display_errors', 1);

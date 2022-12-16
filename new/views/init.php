@@ -13,20 +13,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;400;600;900&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="http://localhost/child/new/assets/vendor/fonts/fontawesome.css" />
-    <link rel="stylesheet" href="http://localhost/child/new/assets/vendor/fonts/tabler-icons.css" />
-    <link rel="stylesheet" href="http://localhost/child/new/assets/vendor/fonts/flag-icons.css" />
-    <link rel="stylesheet" href="http://localhost/child/new/assets/vendor/css/core.css" />
-    <link rel="stylesheet" href="http://localhost/child/new/assets/vendor/css/theme-semi-dark.css" />
-    <link rel="stylesheet" href="http://localhost/child/new/assets/css/demo.css" />
-    <link rel="stylesheet" href="http://localhost/child/new/assets/css/custom.css" />
-    <link rel="stylesheet" href="http://localhost/child/new/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-    <link rel="stylesheet" href="http://localhost/child/new/assets/vendor/libs/node-waves/node-waves.css" />
-    <link rel="stylesheet" href="http://localhost/child/new/assets/vendor/libs/apex-charts/apex-charts.css" />
-    <link rel="stylesheet" href="http://localhost/child/new/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
-    <link rel="stylesheet" href="http://localhost/child/new/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
-    <link rel="stylesheet" href="http://localhost/child/new/assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" />
-    <link rel="stylesheet" href="http://localhost/child/new/assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" />
-    <script src="http://localhost/child/new/assets/vendor/js/helpers.js"></script>
-    <script src="http://localhost/child/new/assets/js/config.js"></script>
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="assets/vendor/fonts/tabler-icons.css" />
+    <link rel="stylesheet" href="assets/vendor/fonts/flag-icons.css" />
+    <link rel="stylesheet" href="assets/vendor/css/core.css" />
+    <link rel="stylesheet" href="assets/vendor/css/theme-semi-dark.css" />
+    <link rel="stylesheet" href="assets/css/demo.css" />
+    <link rel="stylesheet" href="assets/css/custom.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/node-waves/node-waves.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/apex-charts/apex-charts.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" />
+    <script src="assets/vendor/js/helpers.js"></script>
+    <script src="assets/js/config.js"></script>
   </head>
