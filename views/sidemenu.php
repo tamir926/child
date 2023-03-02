@@ -210,6 +210,26 @@
                   </ul>
                 </li>
             </li>
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-book"></i>
+                <div data-i18n="Үйл ажилгааны тайлан">Үйл ажилгааны тайлан</div>
+              </a>
+                
+                  <ul class="menu-sub">
+                  <li class="menu-item">
+                  <a href="plan" class="menu-link">
+                    <div data-i18n="Хичээлийн хувиар">Хичээлийн хувиар</div>
+                  </a>
+                  </li>
+                    <li class="menu-item">
+                      <a href="plan" class="menu-link">
+                        <div data-i18n="Хичээлийн хөтөлбөр">Хичээлийн хөтөлбөр</div>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+            </li>
 
           </ul>
         </aside>

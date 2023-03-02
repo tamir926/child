@@ -39,7 +39,7 @@ require_once("views/init.php");
                 <div class="btn-group pull-right">
                     <a href="?action=list" class="btn btn-primary waves-effect waves-light">Бүгд</a>
                     <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split waves-effect waves-light" data-bs-toggle="dropdown" aria-expanded="false"></button>
-                    <div class="dropdown-menu" style="">
+                    <div class="dropdown-menu">
                     <a class="dropdown-item" href="?action=new">Шинэ нэмэх</a>
                     </div>
                 </div>
