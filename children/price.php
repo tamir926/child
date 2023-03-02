@@ -40,9 +40,9 @@ echo '<tr>
         <td>'.$ppp.'</td>
         <td>'.number_format($row2['uld']).' ₮</td>
         <td>';
-        echo '<a href="#" data-toggle="modal" data-target="#addprice'.$row['month'].'" class="btn btn-info">Харах</a>';
+        echo '<a href="#" data-bs-toggle="modal" data-bs-target="#addprice'.$row['month'].'" class="btn btn-info">Харах</a>';
         echo '
-        <a href="#" data-toggle="modal" data-target="#changeprice'.$row['month'].'" class="btn btn-info">Өөрчлөх</a>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#changeprice'.$row['month'].'" class="btn btn-info">Өөрчлөх</a>
         </td>
       </tr>';
       $i++;
@@ -84,7 +84,7 @@ while($row1 = mysqli_fetch_array($query1))
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="addlevel"><img src="<?php echo $browser_img; ?>" width="90px;">
+          <h5 class="modal-title" id="addlevel"><img src="<?php echo $g_icon; ?>" width="90px;">
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       &nbsp;&nbsp;
@@ -139,7 +139,7 @@ while($row1 = mysqli_fetch_array($query1))
              <td></td>
              <td>
                <button type="button" class="btn btn-default" data-dismiss="modal">Гарах</button>
-               <input type="submit" name="price_insert" class="btn btn-primary" value="Хадгалах">
+               <button type="button" name="price_insert" class="btn btn-primary">Хадгалах</button>
              </td>
            </tr>
         </table>
@@ -210,7 +210,7 @@ while($row1 = mysqli_fetch_array($query1))
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="addlevel"><img src="<?php echo $browser_img; ?>" width="90px;">
+          <h5 class="modal-title" id="addlevel"><img src="<?php echo $g_icon; ?>" width="90px;">
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       &nbsp;&nbsp;
@@ -233,7 +233,7 @@ while($row1 = mysqli_fetch_array($query1))
              <td></td>
              <td>
                <button type="button" class="btn btn-default" data-dismiss="modal">Гарах</button>
-               <input type="submit" name="price_change" class="btn btn-primary" value="Хадгалах">
+               <button type="button" name="price_change" class="btn btn-primary">Хадгалах</button>
              </td>
            </tr>
         </table>

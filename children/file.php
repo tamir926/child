@@ -3,7 +3,7 @@
   <tr>
     <input type="hidden" name="id" value="<?=$id?>">
     <td><input type="file" class="form-control" name="sfile" id="sfile"></td>
-    <td><input type="submit" class="btn btn-info" name="student_file" value="Хадгалах"></td>
+    <td><input type="submit" class="btn btn-info" style="background-color:red; padding:-5px;" name="student_file" value="Хадгалах"></td>
   </tr>
 </table>
 </form>

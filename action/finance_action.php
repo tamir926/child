@@ -31,6 +31,8 @@ if(isset($_POST['insert_finance1']))
       }
       else
       {
+          echo "insert into finance (type1,pay_type,amount,note,createdate,systemdate1,branch,uld,bank_name,bank_acntno,acntname)
+         values ($type1,$pay_type,'$amount','$note','$createdate','$date',$branch,'$dans','$bank_name','$bank_acntno','$acntname')";
          mysqli_query($conn,"insert into finance (type1,pay_type,amount,note,createdate,systemdate1,branch,uld,bank_name,bank_acntno,acntname)
          values ($type1,$pay_type,'$amount','$note','$createdate','$date',$branch,'$dans','$bank_name','$bank_acntno','$acntname')") or die (mysqli_error());
       }

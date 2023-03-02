@@ -1,0 +1,18 @@
+[01-Mar-2023 15:42:07 UTC] PHP Warning:  Undefined array key "id" in /home/townmn/public_html/child/action/irts_action.php on line 25
+[01-Mar-2023 15:43:28 UTC] PHP Warning:  Undefined array key "id" in /home/townmn/public_html/child/action/irts_action.php on line 25
+[01-Mar-2023 15:43:44 UTC] PHP Warning:  Undefined array key "id" in /home/townmn/public_html/child/action/irts_action.php on line 25
+[01-Mar-2023 15:51:17 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Field 'id' doesn't have a default value in /home/townmn/public_html/child/action/finance_action.php:35
+Stack trace:
+#0 /home/townmn/public_html/child/action/finance_action.php(35): mysqli_query()
+#1 {main}
+  thrown in /home/townmn/public_html/child/action/finance_action.php on line 35
+[01-Mar-2023 15:52:06 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Field 'id' doesn't have a default value in /home/townmn/public_html/child/action/finance_action.php:37
+Stack trace:
+#0 /home/townmn/public_html/child/action/finance_action.php(37): mysqli_query()
+#1 {main}
+  thrown in /home/townmn/public_html/child/action/finance_action.php on line 37
+[01-Mar-2023 15:53:38 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Field 'id' doesn't have a default value in /home/townmn/public_html/child/action/finance_action.php:37
+Stack trace:
+#0 /home/townmn/public_html/child/action/finance_action.php(37): mysqli_query()
+#1 {main}
+  thrown in /home/townmn/public_html/child/action/finance_action.php on line 37

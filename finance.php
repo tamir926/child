@@ -1,163 +1,26 @@
-
-<?php require_once("config.php"); ?>
-<?php require_once("views/helper.php"); ?>
-<?php require_once("views/init.php"); ?>
-<link rel="stylesheet" href="assets/css/vendor/OverlayScrollbars.min.css" />
-<style type="text/css">
-  div[rel='scrollcontent1'] { width: 100%;}
-  .scrollcontent1-content { align-items: center !important;} /* for vertical content, no explicit width is required for inner DIV */
-  .scrollcontent1-bar { width: 5px; background: #fffeda; border-radius: 4px; box-shadow: inset 0px 0px 5px #444444; overflow: hidden; }
-  .scrollcontent1-drag { background: #ad5134; border-radius: 4px; cursor: pointer; }
-</style>
-<script src="assets/js/base/loader.js"></script>
-<script>
-    $(document).ready(function(){
-    $('#branch_type').on('change', function(){
-    var branchID = $(this).val();
-    if(branchID){
-      $.ajax({
-        type:'POST',
-        url:'ajaxData.php',
-        data:'branch='+branchID,
-        success:function(html){
-        $('#branch_dans').html(html);
-        }
-        });
-        }
-          else{
-              $('#branch_dans').html('<option value="">Select country first</option>');
-           }
-        });
-    });
-</script>
-<body>
-  <div class="container-fluid h-100">
-    <div class="row">
-      <div class="col-lg-1 p-5 align-items-center text-center">
-        <?php require_once 'views/menu.php';?>
-      </div>
-      <div class="col-lg-11 ">
-        <div class="card mt-card card-top">
-          <div class="card-body">
-            <div class="d-flex flex-row-reverse">
-              <div class="user-container d-flex ms-card">
-                <a href="#" class="d-flex user position-relative " data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <img class="profile" alt="profile" src="assets/img/profile/profile-1.webp">
-                </a>
-                <div class="dropdown-menu dropdown-menu-end user-menu wide">
-                  <div class="row mb-3 ms-0 me-0">
-                    <div class="col-12 ps-1 mb-2">
-                      <div class="text-extra-small text-primary">ACCOUNT</div>
-                    </div>
-                    <div class="col-6 ps-1 pe-1">
-                      <ul class="list-unstyled">
-                        <li>
-                          <a href="#">User Info</a>
-                        </li>
-                        <li>
-                          <a href="#">Preferences</a>
-                        </li>
-                        <li>
-                          <a href="#">Calendar</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="col-6 pe-1 ps-1">
-                      <ul class="list-unstyled">
-                        <li>
-                          <a href="#">Security</a>
-                        </li>
-                        <li>
-                          <a href="#">Billing</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="row mb-1 ms-0 me-0">
-                    <div class="col-12 p-1 mb-2 pt-2">
-                      <div class="text-extra-small text-primary">APPLICATION</div>
-                    </div>
-                    <div class="col-6 ps-1 pe-1">
-                      <ul class="list-unstyled">
-                        <li>
-                          <a href="#">Themes</a>
-                        </li>
-                        <li>
-                          <a href="#">Language</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="col-6 pe-1 ps-1">
-                      <ul class="list-unstyled">
-                        <li>
-                          <a href="#">Devices</a>
-                        </li>
-                        <li>
-                          <a href="#">Storage</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="row mb-1 ms-0 me-0">
-                    <div class="col-12 p-1 mb-3 pt-3">
-                      <div class="separator-light"></div>
-                    </div>
-                    <div class="col-6 ps-1 pe-1">
-                      <ul class="list-unstyled">
-                        <li>
-                          <a href="#">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="acorn-icons acorn-icons-help me-2">
-                              <circle cx="10" cy="9.99997" r="3" transform="rotate(-135 10 9.99997)"></circle>
-                              <path d="M3.63608 3.63602C4.41713 2.85497 5.68346 2.85497 6.46451 3.63602L7.87872 5.05023C8.65977 5.83128 8.65977 7.09761 7.87872 7.87866V7.87866C7.09767 8.6597 5.83134 8.6597 5.05029 7.87866L3.63608 6.46444C2.85503 5.68339 2.85503 4.41706 3.63608 3.63602V3.63602zM12.1214 12.1213C12.9025 11.3403 14.1688 11.3403 14.9499 12.1213L16.3641 13.5355C17.1451 14.3166 17.1451 15.5829 16.3641 16.3639V16.3639C15.583 17.145 14.3167 17.145 13.5356 16.3639L12.1214 14.9497C11.3404 14.1687 11.3404 12.9024 12.1214 12.1213V12.1213z"></path>
-                              <path d="M5.93558 3.10715C9.00339 1.29528 13.021 1.70728 15.6569 4.34315C18.2927 6.97901 18.7047 10.9966 16.8929 14.0644M3.10715 5.93558C1.29528 9.00339 1.70728 13.021 4.34315 15.6569C6.97901 18.2927 10.9966 18.7047 14.0644 16.8929"></path>
-                              <path d="M4.34326 15.6569L7.8788 12.1213M15.657 4.34315L12.1214 7.87869"></path>
-                            </svg>
-                            <span class="align-middle">Help</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="acorn-icons acorn-icons-file-text me-2">
-                              <path d="M6.5 18H13.5C14.9045 18 15.6067 18 16.1111 17.6629C16.3295 17.517 16.517 17.3295 16.6629 17.1111C17 16.6067 17 15.9045 17 14.5V7.44975C17 6.83775 17 6.53175 16.9139 6.24786C16.8759 6.12249 16.8256 6.00117 16.7638 5.88563C16.624 5.62399 16.4076 5.40762 15.9749 4.97487L14.0251 3.02513L14.0251 3.02512C13.5924 2.59238 13.376 2.37601 13.1144 2.23616C12.9988 2.1744 12.8775 2.12415 12.7521 2.08612C12.4682 2 12.1622 2 11.5503 2H6.5C5.09554 2 4.39331 2 3.88886 2.33706C3.67048 2.48298 3.48298 2.67048 3.33706 2.88886C3 3.39331 3 4.09554 3 5.5V14.5C3 15.9045 3 16.6067 3.33706 17.1111C3.48298 17.3295 3.67048 17.517 3.88886 17.6629C4.39331 18 5.09554 18 6.5 18Z"></path>
-                              <path d="M13 6 7 6M13 10 7 10M13 14 7 14"></path>
-                            </svg>
-                            <span class="align-middle">Docs</span>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="col-6 pe-1 ps-1">
-                      <ul class="list-unstyled">
-                        <li>
-                          <a href="#">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="acorn-icons acorn-icons-gear me-2">
-                              <path d="M8.32233 3.75427C8.52487 1.45662 11.776 1.3967 11.898 3.68836C11.9675 4.99415 13.2898 5.76859 14.4394 5.17678C16.4568 4.13815 18.0312 7.02423 16.1709 8.35098C15.111 9.10697 15.0829 10.7051 16.1171 11.4225C17.932 12.6815 16.2552 15.6275 14.273 14.6626C13.1434 14.1128 11.7931 14.9365 11.6777 16.2457C11.4751 18.5434 8.22404 18.6033 8.10202 16.3116C8.03249 15.0059 6.71017 14.2314 5.56062 14.8232C3.54318 15.8619 1.96879 12.9758 3.82906 11.649C4.88905 10.893 4.91709 9.29487 3.88295 8.57749C2.06805 7.31848 3.74476 4.37247 5.72705 5.33737C6.85656 5.88718 8.20692 5.06347 8.32233 3.75427Z"></path>
-                              <path d="M10 8C11.1046 8 12 8.89543 12 10V10C12 11.1046 11.1046 12 10 12V12C8.89543 12 8 11.1046 8 10V10C8 8.89543 8.89543 8 10 8V8Z"></path>
-                            </svg>
-                            <span class="align-middle">Settings</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="acorn-icons acorn-icons-logout me-2">
-                              <path d="M7 15 2.35355 10.3536C2.15829 10.1583 2.15829 9.84171 2.35355 9.64645L7 5M3 10H13M12 18 14.5 18C15.9045 18 16.6067 18 17.1111 17.6629 17.3295 17.517 17.517 17.3295 17.6629 17.1111 18 16.6067 18 15.9045 18 14.5L18 5.5C18 4.09554 18 3.39331 17.6629 2.88886 17.517 2.67048 17.3295 2.48298 17.1111 2.33706 16.6067 2 15.9045 2 14.5 2L12 2"></path>
-                            </svg>
-                            <span class="align-middle">Logout</span>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <a href="#" class=""><i class="fa fa-lightbulb"></i></a>
-            </div>
-          </div>
-        </div>
-        <?php $login = 6; ?>
-        <div class="card mt-card">
-          <div class="card">
-          <div class="body" style="margin:50px;">
+<?php
+require_once("config.php");
+require_once("views/helper.php");
+require_once("views/login_check.php");
+require_once("views/init.php");
+?>
+<?php
+ $g_logged_name = $_SESSION['admin_name'];
+ $g_logged_avatar = $_SESSION['admin_avatar'];
+ $g_logged = $_SESSION['admin_logged'];
+ $g_logged_timestamp = $_SESSION['admin_timestamp'];
+ ?>
+  <body>
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        <?php require_once("views/sidemenu.php");?>
+        <div class="layout-page">
+        <?php require_once("views/topmenu.php");?>
+          <div class="content-wrapper">
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="fw-bold py-3 mb-4">Ирцийн мэдээлэл</h4>
+              <div class="card" style="padding:30px;">
+              <div class="body">
           <form action="<?=$path?>finance" method="get">
           <table class="table">
             <tr>
@@ -189,7 +52,7 @@
                 echo '<select class="form-select" name="dans">';
                 $query = mysqli_query($conn,"select *from (select id , name , dans from branch
                 union all
-                select id , name , dans1 from branch ) a order by id") or die (mysqli_error());
+                select id , name , dans1 from branch ) a where a.id = 3 order by id") or die (mysqli_error());
                 while($row = mysqli_fetch_array($query))
                 {
                 ?>
@@ -200,26 +63,22 @@
                 ?>
               </td>
               <td>
-                <input type="submit" name="submit" value="Хайлт хийх" class="btn btn-info">
+                <button name="submit" class="btn btn-primary">Хайх</button>
               </td>
             </tr>
           </table>
           </form>
-          <?php if($login==4 || $login==6)
-          { ?>
-
           <div class="dropdown">
-            <a class="btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-              Гүйлгээ
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#orlogo" href="#">Орлого</a></li>
-              <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#zarlaga" href="#">Зарлага</a></li>
-              <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal" href="#">Сургалтын орлого</a></li>
-              <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#backmodal" href="#">Буцаалт</a></li>
+            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">Гүйлгээ
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+            
+              <li><a href="#" data-bs-toggle="modal" data-bs-target="#orlogo"><i class="menu-icon tf-icons ti ti-arrow-right "></i>Орлого</a></li>
+              <li><a href="#" data-bs-toggle="modal" data-bs-target="#zarlaga"><i class="menu-icon tf-icons ti ti-arrow-right "></i>Зарлага</a></li>
+              <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="menu-icon tf-icons ti ti-arrow-right "></i>Сургалтын орлого</a></li>
+              <li><a href="#" data-bs-toggle="modal" data-bs-target="#backmodal"><i class="menu-icon tf-icons ti ti-arrow-right "></i>Буцаалт</a></li>
             </ul>
           </div>
-
           <?php
               if(isset($_GET['submit']))
               {
@@ -229,7 +88,7 @@
                 	header("Content-type: application/vnd.ms-excel");
                 	header("Content-Disposition: attachment; filename=$file");*/
               }
-          } ?>
+           ?>
           <br/><br/>
           <div class="table-responsive">
             <?php
@@ -289,8 +148,7 @@
             {
               $yy = date('Y');
               $mm = date('m');
-              //$one = $yy.'-'.$mm.'-01';
-              $one = '2022-01-01';
+              $one = $yy.'-'.$mm.'-01';
               $two = $yy.'-'.$mm.'-31';
               $searchdate = "and a.createdate >= '$one' and a.createdate <= '$two'";
               $searchdate1 = "a.createdate >= '$one' and a.createdate <= '$two'";
@@ -299,25 +157,26 @@
 
             $query = mysqli_query($conn,"select sum(orlogo) niit_orlogo , sum(zarlaga) niit_zarlaga , sum(orlogo)-sum(zarlaga) uldegdel from
             (
-              select pay_type, amount, a.id, (case pay_type when 1 then amount else 0 end) orlogo, uld, (case pay_type when 2 then amount else 0 end) zarlaga ,
-               type_name , a.createdate, a.branch, a.note, a.type1 , b.name , systemdate1 ognoo , a.bank_name , a.bank_acntno , a.acntname from finance a, branch b ,
-               finance_type c where a.branch = b.id and a.type1 = c.id and a.createdate < '$startdate' $dans order by createdate , id
+              select pay_type, amount, a.id, (case pay_type when 1 then amount else 0 end) orlogo, uld, (case pay_type when 2 then amount else 0 end) zarlaga , type_name , a.createdate, a.branch, a.note, a.type1 , b.name , systemdate1 ognoo , a.bank_name , a.bank_acntno , a.acntname from finance a, branch b , finance_type c where a.branch = b.id and a.type1 = c.id and a.createdate < '$startdate' $dans order by createdate , id
             ) a") or die (mysqli_error());
             $ehleh = mysqli_fetch_array($query);
-            $uldegdel = $ehleh['uldegdel'];
-            if(empty($uldegdel))
+            if(empty($ehleh['uldegdel']))
             {
-              $uldegdel = 0;
+              $ehleh = 0;
+            }
+            else 
+            {
+              $ehleh = $ehleh['uldegdel'];
             }
             ?>
-            <?php
+            <?php 
             $effectiveDate = date('Y-m-d');
             $edate = date('Y-m-d', strtotime("-1 months", strtotime($effectiveDate)));
             ?>
             <table style="font-size:12px;" class="table table-striped">
               <tr>
                 <td colspan=9 align="right">Эхний үлдэгдэл</td>
-                <td><b><?=number_format($uldegdel, 2, '.', ',')?></b></td>
+                <td><b><?=number_format($ehleh, 2, '.', ',')?></b></td>
               </tr>
               <tr>
                 <th>Д</th>
@@ -329,20 +188,19 @@
                 <th>Төрөл</th>
                 <th>Салбар</th>
                 <th>Гүйлгээний утга</th>
-                <?php
-                if($login==4 || $login==6) { echo '<th>Үйлдэл</th>'; }
-                ?>
+                <th>Үйлдэл</th>
               </tr>
               <?php
+               
               $query = mysqli_query($conn,"select pay_type, amount, a.id,  (case pay_type when 1 then amount else 0 end) orlogo, uld,
               (case pay_type when 2 then amount else 0 end) zarlaga , type_name , a.createdate, a.branch, a.note, a.type1 , b.name ,
-              systemdate1 ognoo  , a.bank_name , a.bank_acntno , a.acntname from finance a, branch b , finance_type c where a.branch = b.id and a.type1 = c.id
-              $searchdate $pay_type1 $type2 $dans order by createdate , id") or die (mysqli_error());
-
+              systemdate1 ognoo  , a.bank_name , a.bank_acntno , a.acntname from finance a, branch b , finance_type c where a.branch = b.id and a.type1 = c.id $searchdate $pay_type1 $type2 $dans order by createdate , id") or die (mysqli_error());
+              //mysqli_query($conn,"set @row_number = 0");
+              //$query = mysqli_query($conn,"select (@row_number:=@row_number + 1) AS num, pay_type, amount, a.id, (case pay_type when 1 then amount else 0 end) orlogo, uld, (case pay_type when 2 then amount else 0 end) zarlaga , type_name , a.createdate, a.branch, a.note, a.type1 , b.name , systemdate1 ognoo , a.bank_name , a.bank_acntno , a.acntname from finance a, branch b , finance_type c where a.branch = b.id and a.type1 = c.id and a.createdate >= '2021-09-01' and a.createdate <= '2021-09-03' and uld = 452569698 order by createdate , id") or die (mysqli_error());
               $i = 1;
               $niit_orlogo = 0;
               $niit_zarlaga = 0;
-              $aniit_orlogo = $ehleh['uldegdel'];
+              $aniit_orlogo = $ehleh;
               while($row = mysqli_fetch_array($query))
               {
                 $jrno = $row['id'];
@@ -375,9 +233,9 @@
                     <td id="ognoo_'.$jrno.'"><span style="cursor:pointer" title='.$row['ognoo'].'>'.$row['createdate'].'</span></td>
                     <td>'.number_format($row['orlogo'], 2, '.', ',').'</td>
                     <td>'.number_format($row['zarlaga'], 2, '.', ',').'</td><td>';
-
+                    
                     //$aniit_orlogo = $data12['uldegdel'];
-                    $now_uld = $ehleh['uldegdel'];
+                    $now_uld = $ehleh;
                     if($row['pay_type']==1)
                     {
                       $aniit_orlogo = $aniit_orlogo+($row['orlogo']);
@@ -391,19 +249,11 @@
                     <td id="type_name_'.$jrno.'">'.$row['type_name'].'</td>
                     <td id="name_'.$jrno.'">'.$row['name'].'</td>
                     <td id="note_'.$jrno.'">'.$row['note'].'</td>';
-                    //if(($login==4 || $login==6) && ($edate<$row['createdate']))
-                    if(($login==4 || $login==6))
-                    {
-                     echo '<th><a href="#" data-bs-toggle="modal" data-bs-target="#mymodal" class="btn btn-primary" onClick="showModal('.$jrno.')">Засах</a>';
+                    echo '<th><a href="#" data-bs-toggle="modal" class="btn btn-primary" data-bs-target="#mymodal" onClick="showModal('.$jrno.')">Засах</a>';
                      ?>
                      <a href="<?=$path?>action/finance_action.php?delete_finance=<?=$jrno?>"  onclick="return confirm('Бичлэг устгахдаа итгэлтэй байна уу?')" class="btn btn-danger">Устгах</a>
-                     <?php '</th>';
-                    }
-                    else
-                    {
-                        echo '<th>Засварлахгүй</th>';
-                    }
-                    echo '</tr>';
+                     <?php '</th>
+                     </tr>';
                   $i++;
                   $niit_orlogo = $niit_orlogo+$row['orlogo'];
                   $niit_zarlaga = $niit_zarlaga+$row['zarlaga'];
@@ -437,12 +287,405 @@
             </table>
           </div>
           </div>
-        </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
+
+    <!-- Mongon ursgal orlogo -->
+<div class="modal fade" id="orlogo" tabindex="-1" role="dialog" aria-labelledby="addlevel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addlevel"><img src="<?php echo $g_icon; ?>" width="90px;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		Орлогын гүйлгээ нэмэх</h5>
+      </div>
+	  <div class="modal-body">
+		<form action="<?=$path?>action/finance_action.php" method="post">
+      <table class="table table-bordered">
+        <tr>
+  				<td>Огноо</td>
+  				<td><input type="text" class="form-control" name="createdate" value=<?=date('Y-m-d H:i:s')?>>
+  				<input type="hidden" name="edate" value="<?=$edate?>">
+  				</td>
+  			</tr>
+  			<tr>
+  				<td>Төрлийн нэр</td>
+  				<td>
+  				  <select name="type1" class="form-select">
+  				  <?php
+            $query = mysqli_query($conn,"select *from finance_type where type1=1") or die (mysqli_error());
+            while($row = mysqli_fetch_array($query))
+            {
+              echo '<option value="'.$row['id'].'">'.$row['type_name'].'</option>';
+            }
+            ?>
+  				 </select>
+  				</td>
+  			</tr>
+        <tr>
+            <input type="hidden" name="pay_type" value=1>
+  				<td>Дүн</td><td><input type="textbox" name="amount" class="form-control" required></td>
+  			</tr>
+  			<tr>
+  			  <td>Утга</td><td><textarea name="note" class="form-control"></textarea></td>
+  			</tr>
+  			<tr>
+  			  <td>Салбар</td>
+  			  <td>
+            <select name="branch" id="branch_type1" class="form-select">
+  			  <?php
+  			  $query1 = mysqli_query($conn,"select *from branch where id = 3") or die (mysqli_error());
+  			  while($row1 = mysqli_fetch_array($query1))
+          {
+          ?>
+          <option value="<?=$row1['id']?>"><?=$row1['name']?></option>
+          <?php
+          }
+  			  ?>
+  			  </select>
+  			  </td>
+  			</tr>
+  			<tr>
+  			    <td>Данс</td>
+  			    <td><select name="dans" id="branch_typee1" class="form-select">
+  			        <?php
+  			        $result = $conn->query("select *from branch where id = 3");
+                      if($result->num_rows > 0)
+                      {
+                        while($row = $result->fetch_assoc())
+                        {
+                          echo '<option value="'.$row['dans'].'">'.$row['dans'].'</option>';
+                          echo '<option value="'.$row['dans1'].'">'.$row['dans1'].'</option>';
+                        }
+                      }
+  			        ?>
+  			        </select>
+  			    </td>
+  			</tr>
+  			<tr>
+				<td></td>
+				<td>
+          <button type="submit" name="insert_finance1" class="btn btn-primary">Хадгалах</button>
+          &nbsp;&nbsp;
+          
+					<button type="button" class="btn btn-default" data-bs-dismiss="modal">Гарах</button>
+				</td>
+			</tr>
+		</table>
+		</form>
+      </div>
+    </div>
   </div>
-<?php include 'views/modal.php';?>
+</div>
+
+<!----- mongon ursgal zarlaga ----->
+<div class="modal fade" id="zarlaga" tabindex="-1" role="dialog" aria-labelledby="addlevel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addlevel"><img src="<?php echo $g_icon; ?>" width="90px;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		Зарлагын гүйлгээ нэмэх</h5>
+      </div>
+	  <div class="modal-body">
+		<form action="<?=$path?>action/finance_action.php" method="post">
+      <table class="table table-bordered">
+        <tr>
+  				<td>Огноо:</td>
+  				<td><input type="text" class="form-control" name="createdate" value=<?=date('Y-m-d H:i:s')?>>
+  				</td>
+  			</tr>
+  			<tr>
+  				<td>Төрлийн нэр:</td>
+  				<td>
+  				    <input type="hidden" name="pay_type" value=2>
+  				 <select name="type1" class="form-select">
+  				  <?php
+            $query = mysqli_query($conn,"select *from finance_type where type1=2") or die (mysqli_error());
+            while($row = mysqli_fetch_array($query))
+            {
+              echo '<option value="'.$row['id'].'">'.$row['type_name'].'</option>';
+            }
+            ?>
+  				  </select>
+  				</td>
+  			</tr>
+        <tr>
+          <td>Илгээх банк:</td>
+          <td>
+            <input name="bank_name" type="text" class="form-control">
+            <input type="hidden" name="edate" value="<?=$edate?>">
+          </td>
+        </tr>
+        <tr>
+          <td>Хүлээн авах данс:</td>
+          <td><input name="bank_acntno" type="text" class="form-control"></td>
+        </tr>
+        <tr>
+          <td>Дансны нэр:</td>
+          <td><input name="acntname" type="text" class="form-control"></td>
+        </tr>
+        <tr>
+  				<td>Гүйлгээний дүн:</td>
+          <td><input type="textbox" name="amount" class="form-control" required></td>
+  			</tr>
+  			<tr>
+  			  <td>Утга:</td>
+          <td><textarea name="note" class="form-control"></textarea></td>
+  			</tr>
+  			<tr>
+  			    <td>Салбар:</td>
+  			    <td><select name="branch" id="branch_type2" class="form-control">
+  			        <?php
+  			         $query1 = mysqli_query($conn,"select *from branch") or die (mysqli_error());
+  			         while($row1 = mysqli_fetch_array($query1))
+                 {
+                ?>
+                <option <?php if($row1['id']==3) { echo 'selected';}?> value="<?=$row1['id']?>"><?=$row1['name']?></option>
+                <?php
+                }
+  			        ?>
+  			        </select>
+  			    </td>
+  			</tr>
+  			<tr>
+  			    <td>Данс:</td>
+          		    <td><select name="dans" id="dans" class="form-select">
+          		    <?php
+          		    $query1 = mysqli_query($conn,"select *from (
+                    select id , name , dans from branch
+                    union all
+                    select id , name , dans1 from branch
+                        ) a where a.id=3 order by id") or die (mysqli_error());
+          		    while($row1 = mysqli_fetch_array($query1))
+                    { ?>
+                    <option value="<?=$row1['dans']?>"><?=$row1['name'].'- '.$row1['dans']?></option>
+                    <?php
+                    } ?>
+          			 </select>
+          			</td>
+          	</tr>
+  			<tr>
+				<td></td>
+				<td>
+          <button type="submit" class="btn btn-primary" name="insert_finance2">Хадгалах</button>
+          &nbsp;&nbsp;
+					<button type="button" class="btn btn-default" data-bs-dismiss="modal">Гарах</button>
+				</td>
+			</tr>
+		</table>
+		</form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--- Your modal -->
+<form action="<?=$path?>action/finance_action.php" method="post">
+<div id="mymodal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Санхүүгийн мэдээлэл засварлах</h4>
+      </div>
+      <div class="modal-body">
+        <table class="table table-bordered">
+          <tr>
+            <td>Огноо</td>
+            <input type="hidden" name="jrno" id="id">
+            <input type="hidden" name="old_uld" id="uld" class="form-control">
+          	<td><input type="text" class="form-control" name="createdate" id="ognoo"></td>
+          </tr>
+          <tr>
+            <td>Төрөл</td>
+          	<td>
+          	   <select name="pay_type" id="pay_type" class="form-select" onchange="showDiv1(this)">
+          		   <option value="1">Орлого</option>
+          			 <option value="2">Зарлага</option>
+          		 </select>
+          	</td>
+          </tr>
+          <tr>
+            <td>Ангилал</td>
+          	<td>
+          	  <select name="type1" id="type1" class="form-select">
+          		<?php
+                $query = mysqli_query($conn,"select *from finance_type") or die (mysqli_error());
+                while($row = mysqli_fetch_array($query))
+                {
+                  echo '<option value="'.$row['id'].'">'.$row['type_name'].'</option>';
+                }
+              ?>
+          		</select>
+          	</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+            <div id="zarlaga3" style="display:none;">
+              <input placeholder="Илгээсэн банк" id="bank_name" name="bank_name" type="text" class="form-control"><br/>
+              <input placeholder="Орсон данс" id="bank_acntno" name="bank_acntno" type="text" class="form-control"><br/>
+              <input placeholder="Дансны нэр" id="acntname" name="acntname" type="text" class="form-control"><br/>
+            </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Дүн</td><td><input type="textbox" name="amount" id="amount" class="form-control" required></td>
+          </tr>
+          <tr>
+            <td>Утга</td><td><textarea name="note" id="note" class="form-control"></textarea></td>
+          </tr>
+          <tr>
+            <td>Салбар</td>
+          	<td><select name="branch" id="branch" class="form-select">
+          		    <?php
+          		    $query1 = mysqli_query($conn,"select *from branch") or die (mysqli_error());
+          		    while($row1 = mysqli_fetch_array($query1))
+                    { ?>
+                    <option value="<?=$row1['id']?>"><?=$row1['name']?></option>
+                    <?php
+                    } ?>
+          			 </select>
+          			</td>
+          		</tr>
+          		<tr>
+          		    <td>Данс</td>
+          		    <td><select name="dans" id="dans" class="form-select">
+          		    <?php
+          		    $query1 = mysqli_query($conn,"select *from (
+                    select id , name , dans from branch
+                    union all
+                    select id , name , dans1 from branch
+                        ) a where a.id=3 order by id") or die (mysqli_error());
+          		    while($row1 = mysqli_fetch_array($query1))
+                    { ?>
+                    <option value="<?=$row1['dans']?>"><?=$row1['name'].'- '.$row1['dans']?></option>
+                    <?php
+                    } ?>
+          			 </select>
+          			</td>
+          		</tr>
+          	</table>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" name="update_finance2" class="btn btn-primary">Хадгалах</button>
+                <button type="button" class="btn btn-default" data-bs-dismiss="modal">Буцах</button>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+
+<!-------------butsaalt------------------------->
+<div class="modal fade" id="backmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Гүйлгээний буцаалт</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         <div class="input-group">
+          <span class="input-group-addon">Гүйлгээний журнал №</span>
+          <input type="text" id="search_jrno" class="search_jrno" class="form-control" style="border:solid 1px #eeeeee; padding-left:10px;" />
+         </div>
+        <div id="result1"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!----------------------------------------------->
+
+<!-------------suuld nemsne -------------------->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Сургалтын төлбөрийн мэдээлэл оруулах</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+         <div class="input-group">
+          <span class="input-group-addon">Регистер</span>
+          <input type="text" name="search_text" value="УШ18210273" id="search_text" class="form-control" />
+         </div>
+        </div>
+        <br />
+        <div id="result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+// suragchiin tolbor toloh
+$(document).ready(function(){
+ load_data();
+ function load_data(query)
+ {
+  $.ajax({
+   url:"test3.php",
+   method:"POST",
+   data:{query:query},
+   success:function(data)
+   {
+    $('#result').html(data);
+   }
+  });
+ }
+ $('#search_text').keyup(function(){
+  var search = $(this).val();
+  if(search != '')
+  {
+   load_data(search);
+  }
+  else
+  {
+   load_data();
+  }
+ });
+});
+// guilgeenii butsaalt
+$(document).ready(function(){
+ load_data();
+ function load_data(query)
+ {
+  $.ajax({
+   url:"test4.php",
+   method:"POST",
+   data:{query:query},
+   success:function(data)
+   {
+    $('#result1').html(data);
+   }
+  });
+ }
+ $('#search_jrno').keyup(function(){
+  var search = $(this).val();
+  if(search != '')
+  {
+   load_data(search);
+  }
+  else
+  {
+   load_data();
+  }
+ });
+});
+</script>
 <script>
 function showModal(id)
 {
@@ -467,34 +710,85 @@ function showModal(id)
 }
 </script>
 
+<script>
+$(document).ready(function(){
+  $('#branch_type').on('change', function(){
+  var typeeID = $(this).val();
+  if(typeeID){
+  $.ajax({
+    type:'POST',
+    url:'ajaxData.php',
+    data:'branch_type='+typeeID,
+    success:function(html){
+    $('#branch_typee').html(html);
+    }
+    });
+    }
+  else{
+        $('#branch_typee').html('<option value="">Select country first</option>');
+     }
+  });
+});
 
-    <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
-    <script src="assets/js/vendor/datepicker/bootstrap-datepicker.min.js"></script>
-    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/vendor/OverlayScrollbars.min.js"></script>
-    <script src="assets/js/vendor/autoComplete.min.js"></script>
-    <script src="assets/js/vendor/clamp.min.js"></script>
-    <script src="assest/icon/acorn-icons.js"></script>
-    <script src="assest/icon/acorn-icons-interface.js"></script>
-    <script src="assets/js/cs/scrollspy.js"></script>
-    <script src="assets/js/vendor/moment-with-locales.min.js"></script>
-    <script src="assets/js/slickcustomscroll.js"></script>
-    <script src="assets/js/base/helpers.js"></script>
-    <script src="assets/js/base/globals.js"></script>
-    <script src="assets/js/base/nav.js"></script>
-    <script src="assets/js/base/search.js"></script>
-    <script src="assets/js/base/settings.js"></script>
-    <script src="assets/js/cs/charts.extend.js"></script>
-    <script src="assets/js/plugins/charts.js"></script>
-    <script src="assets/js/common.js"></script>
-    <script src="assets/js/scripts.js"></script>
+$(document).ready(function(){
+$('#branch_type1').on('change', function(){
+var typeeeID = $(this).val();
+if(typeeeID){
+  $.ajax({
+    type:'POST',
+    url:'ajaxData.php',
+    data:'branch_typeee='+typeeeID,
+    success:function(html){
+    $('#branch_typee1').html(html);
+    }
+    });
+    }
+      else{
+          $('#branch_typee1').html('<option value="">Select country first</option>');
+       }
+    });
+});
 
-  <script>
-    $(document).ready( function() { //when page loads
-       $("div[rel='scrollcontent1']").customscroll( {direction: "vertical" } );
-        alert("asdasd");
-      });
-  </script>
-</body>
+$(document).ready(function(){
+$('#branch_type2').on('change', function(){
+var typeeID = $(this).val();
+if(typeeID){
+  $.ajax({
+    type:'POST',
+    url:'ajaxData.php',
+    data:'branch_typeee='+typeeID,
+    success:function(html){
+    $('#branch_typee2').html(html);
+    }
+    });
+    }
+  else{
+      $('#branch_typee2').html('<option value="">Select country first</option>');
+     }
+  });
+});
+</script>
 
+
+
+
+
+
+    <script src="<?=$path?>assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="<?=$path?>assets/vendor/libs/popper/popper.js"></script>
+    <script src="<?=$path?>assets/vendor/js/bootstrap.js"></script>
+    <script src="<?=$path?>assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="<?=$path?>assets/vendor/libs/node-waves/node-waves.js"></script>
+    <script src="<?=$path?>assets/vendor/libs/hammer/hammer.js"></script>
+    <script src="<?=$path?>assets/vendor/libs/i18n/i18n.js"></script>
+    <script src="<?=$path?>assets/vendor/libs/typeahead-js/typeahead.js"></script>
+    <script src="<?=$path?>assets/vendor/js/menu.js"></script>
+
+    <script src="<?=$path?>assets/vendor/libs/jszip/jszip.js"></script>
+    <script src="<?=$path?>assets/vendor/libs/pdfmake/pdfmake.js"></script>
+    <script src="<?=$path?>assets/vendor/libs/formvalidation/dist/js/FormValidation.min.js"></script>
+    <script src="<?=$path?>assets/vendor/libs/formvalidation/dist/js/plugins/Bootstrap5.min.js"></script>
+    <script src="<?=$path?>assets/vendor/libs/formvalidation/dist/js/plugins/AutoFocus.min.js"></script>
+    <script src="<?=$path?>assets/js/main.js"></script>
+  </body>
 </html>

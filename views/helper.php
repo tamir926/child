@@ -1,10 +1,13 @@
 <?php
+	//require_once ('../config.php');
+
 	if (!function_exists("protect"))
 	{
 		function protect($input)
 		{
 			$input = str_replace("<", "", $input);
 			$input = str_replace(">", "", $input);
+			$input = str_replace("*", "", $input);
 			$input = str_replace("script", "", $input);
 			$input = str_replace(" and ", "", $input);
 			$input = str_replace(" or ", "", $input);
@@ -22,11 +25,11 @@ if (!function_exists("settings"))
 		global $conn;
 		if (is_int($id_or_shortname))
 			$sql = "SELECT *FROM settings WHERE id='$id_or_shortname' LIMIT 1";
-		else
+		else 
 			$sql = "SELECT *FROM settings WHERE shortname='$id_or_shortname' LIMIT 1";
 
 		$result = mysqli_query($conn,$sql);
-
+		
 		if (mysqli_num_rows($result)==1)
 			{
 				$data = mysqli_fetch_array($result);
@@ -43,9 +46,9 @@ if (!function_exists("parameters"))
 	{
 		global $conn;
 			$sql = "SELECT *FROM parameters WHERE name='$param_name' LIMIT 1";
-
+	
 		$result = mysqli_query($conn,$sql);
-
+		
 		if (mysqli_num_rows($result)==1)
 			{
 				$data = mysqli_fetch_array($result);
@@ -107,6 +110,49 @@ if (!function_exists("price"))
 	}
 }
 
+
+if (!function_exists("zip2dist"))
+{
+	function zip2dist($zip)
+	{	
+		$dist = substr($zip,1,1);
+		switch ($dist)
+		{
+			case '2':
+				{
+					$dist2 = substr($zip,2,1);
+					if ($dist2=='0') return ('Багануур дүүрэг');
+					if ($dist2=='3') return ('Багахангай дүүрэг');
+					if ($dist2=='6') return ('Налайх дүүрэг');
+					if ($dist2 !='0' && $dist2!='3' && $dist2=='6') return '';
+					break;
+				}
+			case '3':
+				return ('Баянзүрх дүүрэг');
+				break;
+			case '4':
+				return ('Сүхбаатар дүүрэг');
+				break;
+			case '5':
+				return ('Чингэлтэй дүүрэг');
+				break;
+			case '6':
+				return ('Баянгол дүүрэг');
+				break;
+			case '7':
+				return ('Хан-Уул дүүрэг');
+				break;
+			case '8':
+				return ('Сонгинохайрхан дүүрэг');
+				break;
+			
+			default:
+				return ('');
+				break;
+		}
+	}
+}
+
 if (!function_exists("customer"))
 {
 	function customer($customer_id,$guest_or_user)
@@ -114,7 +160,7 @@ if (!function_exists("customer"))
 		global $conn;
 		if ($guest_or_user==1) $sql_temp = "SELECT *FROM guest WHERE guest_id='$customer_id' LIMIT 1";
 		if ($guest_or_user==2) $sql_temp = "SELECT *FROM user WHERE id='$customer_id' LIMIT 1";
-
+		
 		$result_temp = mysqli_query($conn,$sql_temp);
 		if (mysqli_num_rows($result_temp)==1)
 			{
@@ -165,7 +211,7 @@ if (!function_exists("status"))
 				case "pending":return "Баталгаажсан";break;
 				case "later":return "Хойшлуулсан";break;
 				case "onway":return "Хүргэлтэнд";break;
-				case "cancel":return "Цуцлагдсан";break;
+				case "cancel":return "Цуцлагдсан";break;				
 				case "delivered":return "ХҮРГЭГДСЭН";break;
 				default: return $input; break;
 			}
@@ -176,31 +222,68 @@ if (!function_exists("gmt"))
 	{
 		function gmt($gmt,$timestamp)
 		{
-			if ($timestamp>0)
+			if ($timestamp<>"0000-00-00 00:00:00")
 			return (date('Y-m-d H:i:s',strtotime($gmt." hours", strtotime($timestamp))));
 			else  return "---";
 		}
 	}
-
-
-if (! function_exists ('getRealIp'))
+if (!function_exists("nationality"))
 {
-	function getRealIp() {
-		if (!empty($_SERVER['HTTP_CLIENT_IP'])) {  //check ip from share internet
-		$ip=$_SERVER['HTTP_CLIENT_IP'];
-		} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {  //to check ip is pass from proxy
-		$ip=$_SERVER['HTTP_X_FORWARDED_FOR'];
-		} else {
-		$ip=$_SERVER['REMOTE_ADDR'];
+	function nationality($input)
+	{
+		switch ($input)
+		{
+			case ("altai-urianhai") : 
+			case (1): return "Алтайн Урианхай";break;
+			case ("barga") : case (2): return "Барга";break;
+			case ("baoan") : case (3): return "Баоань";break;
+			case ("bayd") : case (4): return "Баяд";break;
+			case ("buriad") : case (5): return "Буриад";break;
+			case ("darhad") : case (6): return "Дархад";break;
+			case ("dariganga") : case (7): return "Дарьганга";break;
+			case ("deed") : case (8): return "Дээд Монголчууд";break;
+			case ("durvud") : case (9): return "Дөрвөд";break;
+			case ("zahchin") : case (10): return "Захчин";break;
+			case ("kazak") : case (11): return "Казах Хасаг";break;
+			case ("mongor") : case (12): return "Монгор Ту";break;
+			case ("myngad") : case (13): return "Мянгад";break;
+			case ("uuld") : case (14): return "Өөлд";break;
+			case ("oirad") : case (15): return "Синьцзяны Ойрадууд";break;
+			case ("torguud") : case (16): return "Торгууд";break;
+			case ("tuva") : case (17): return "Тува Урианхай";break;
+			case ("uzemchin") : case (18): return "Үзэмчин";break;
+			case ("halh") : case (19): return "Халх";break;
+			case ("hamniga") : case (20): return "Хамниган";break;
+			case ("hotogoid") : case (21): return "Хотогойд";break;
+			case ("hoton") : case (22): return "Хотон";break;
+			case ("huvsgul-urianhai") : case (23): return "Хөвсгөлийн Урианхай Ар Ширхтэн Урианхай";break;
+			case ("halh") : case (24): return "Халх";break;
+			case ("tsahar") : case (25): return "Цахар";break;
 		}
-		return $ip;
 	}
 }
 
+if (!function_exists("cards_in_image"))
+{
+	function cards_in_image($cards,$size)
+	{
+		global $conn;
+		$return="";
+		if ($size<0 || $size>60) $size = 60;
+		foreach(explode(",",$cards) as $single_card)
+		{
+			$single_card =str_replace(" ","",$single_card);
+			//if (file_exists("img/'.$single_card.'.png"))
+			$return.='<img src="img/'.$single_card.'.png" width="'.$size.'" style="align:left">';
+			//else $return .=$single_card.",";
+		}
+		return $return;
+	}
+}
 
 if (!function_exists("resize_image"))
 {
-	function resize_image($file, $w, $h, $crop=FALSE)
+	function resize_image($file, $w, $h, $crop=FALSE) 
 	{
 		list($width, $height) = getimagesize($file);
 		$r = $width / $height;
