@@ -35,22 +35,29 @@ require_once("views/init.php");
               <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Үйл ажилгааны тайлан /</span> Хичээлийн хөтөлбөр</h4>
 
               <!-- Examples -->
-            
               <div class="row mb-5">
+              <?
+              $sql = "SELECT *FROM plan ORDER BY id";
+              $result = mysqli_query($conn,$sql);
+              while ($data = mysqli_fetch_array($result))
+              {
+                  ?>
                 <div class="col-md-6 col-lg-4 mb-3">
                   <div class="card h-100">
                     <img class="card-img-top" src="./assets/img/elements/2.jpg" alt="Card image cap" />
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
+                      <h5 class="card-title"><?=$data["title"];?></h5>
                       <p class="card-text">
-                        Some quick example text to build on the card title and make up the bulk of the card's content.
+                      <?=$data["description"];?>
                       </p>
-                      <a href="plan_detail" class="btn btn-outline-primary">Дэлгэрэнүгй</a>
+                      <a href="plan_detail?id=<?=$data["id"];?>" class="btn btn-outline-primary">Дэлгэрэнүгй</a>
                     </div>
                   </div>
                 </div>
+              <?
+                  }
+              ?>
               </div>
-
               <!-- Examples -->
 
             <!-- Footer -->

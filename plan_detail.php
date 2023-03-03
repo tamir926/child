@@ -32,15 +32,170 @@ require_once("views/init.php");
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Үйл ажилгааны тайлан /</span> Хичээлийн хөтөлбөр</h4>
-
+            <? if ($_GET["action"]) $action=$_GET["action"]; else $action="detail"; ?>
+              
               <!-- Examples -->
-            
-              <div class="row height-match">
-                <div class="col-xl-6">
-                    <div class="card">
+              <?
+              if ($action == "detail")
+              {
+                $plan_id = $_GET["id"];
+                $sql = "SELECT *FROM plan WHERE id='$plan_id'";
+                $result = mysqli_query($conn,$sql);
+                while ($data = mysqli_fetch_array($result))
+                {
+                  ?>
+                  <h4 class="fw-bold py-3 mb-4 ">
+                    <span class="text-muted fw-light">Хичээлийн хөтөлбөр /</span> <?=$data["name"];?>
+                  </h4>
+                  <button type="button" class="btn btn-outline-success mb-3">Засах</button>
+                  <button type="button" class="btn btn-outline-danger mb-3">Устгах</button>
+                  <div class="row height-match">
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <!-- <h6 class="text-muted">Цагаан сар</h6> -->
+                                <div class="nav-align-top mb-4">
+                                  <ul class="nav nav-pills mb-3" role="tablist">
+                                    <li class="nav-item">
+                                      <button
+                                        type="button"
+                                        class="nav-link active"
+                                        role="tab"
+                                        data-bs-toggle="tab"
+                                        data-bs-target="#title"
+                                        aria-controls="title"
+                                        aria-selected="true"
+                                      >
+                                        Суралцахуйн чиглэл
+                                      </button>
+                                    </li>
+                                    <li class="nav-item">
+                                      <button
+                                        type="button"
+                                        class="nav-link"
+                                        role="tab"
+                                        data-bs-toggle="tab"
+                                        data-bs-target="#date"
+                                        aria-controls="date"
+                                        aria-selected="false"
+                                      >
+                                        Он сар өдөр
+                                      </button>
+                                    </li>
+                                    <li class="nav-item">
+                                      <button
+                                        type="button"
+                                        class="nav-link"
+                                        role="tab"
+                                        data-bs-toggle="tab"
+                                        data-bs-target="#description"
+                                        aria-controls="description"
+                                        aria-selected="false"
+                                      >
+                                        Агуулга
+                                      </button>
+                                    </li>
+                                  </ul>
+                                  <div class="tab-content">
+                                    <div class="tab-pane fade show active" id="title" role="tabpanel">
+                                      <p>
+                                      <?=$data["title"];?>
+                                      </p>
+                                      
+                                    </div>
+                                    <div class="tab-pane fade" id="date" role="tabpanel">
+                                      <p>
+                                      <?=$data["date"];?>
+                                      </p>
+                                      
+                                    </div>
+                                    <div class="tab-pane fade" id="description" role="tabpanel">
+                                      <p>
+                                      <?=$data["description"];?>
+                                      </p>
+                                      
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <!-- <h6 class="text-muted">Цагаан сар</h6> -->
+                                <div class="nav-align-top mb-4">
+                                    <ul class="nav nav-pills mb-3" role="tablist">
+                                    <li class="nav-item">
+                                        <button
+                                        type="button"
+                                        class="nav-link active"
+                                        role="tab"
+                                        data-bs-toggle="tab"
+                                        data-bs-target="#purpose"
+                                        aria-controls="purpose"
+                                        aria-selected="true"
+                                        >
+                                        Зорилго
+                                        </button>
+                                    </li>
+                                    <li class="nav-item">
+                                        <button
+                                        type="button"
+                                        class="nav-link"
+                                        role="tab"
+                                        data-bs-toggle="tab"
+                                        data-bs-target="#method"
+                                        aria-controls="method"
+                                        aria-selected="false"
+                                        >
+                                        Сургалтын арга
+                                        </button>
+                                    </li>
+                                    <li class="nav-item">
+                                        <button
+                                        type="button"
+                                        class="nav-link"
+                                        role="tab"
+                                        data-bs-toggle="tab"
+                                        data-bs-target="#tools"
+                                        aria-controls="tools"
+                                        aria-selected="false"
+                                        >
+                                        Хэрэгсэл
+                                        </button>
+                                    </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                    <div class="tab-pane fade show active" id="purpose" role="tabpanel">
+                                        <p>
+                                        <?=$data["purpose"];?>
+                                        </p>
+                                        
+                                    </div>
+                                    <div class="tab-pane fade" id="method" role="tabpanel">
+                                        <p>
+                                        <?=$data["method"];?>
+                                        </p>
+                                        
+                                    </div>
+                                    <div class="tab-pane fade" id="tools" role="tabpanel">
+                                        <p>
+                                        <?=$data["tools"];?>
+                                        </p>
+                                        
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xl-6">
+                    <div class="card mt-4">
                         <div class="card-body">
-                            <h6 class="text-muted">Цагаан сар</h6>
+                            <!-- <h6 class="text-muted">Цагаан сар</h6> -->
                             <div class="nav-align-top mb-4">
                               <ul class="nav nav-pills mb-3" role="tablist">
                                 <li class="nav-item">
@@ -49,11 +204,11 @@ require_once("views/init.php");
                                     class="nav-link active"
                                     role="tab"
                                     data-bs-toggle="tab"
-                                    data-bs-target="#title"
-                                    aria-controls="title"
+                                    data-bs-target="#activity1"
+                                    aria-controls="activity1"
                                     aria-selected="true"
                                   >
-                                    Суралцахуйн чиглэл
+                                    Үйл ажилгаа 1
                                   </button>
                                 </li>
                                 <li class="nav-item">
@@ -62,11 +217,11 @@ require_once("views/init.php");
                                     class="nav-link"
                                     role="tab"
                                     data-bs-toggle="tab"
-                                    data-bs-target="#date"
-                                    aria-controls="date"
+                                    data-bs-target="#activity2"
+                                    aria-controls="activity2"
                                     aria-selected="false"
                                   >
-                                    Он сар өдөр
+                                    Үйл ажилгаа 2
                                   </button>
                                 </li>
                                 <li class="nav-item">
@@ -75,246 +230,107 @@ require_once("views/init.php");
                                     class="nav-link"
                                     role="tab"
                                     data-bs-toggle="tab"
-                                    data-bs-target="#description"
-                                    aria-controls="description"
+                                    data-bs-target="#word"
+                                    aria-controls="word"
                                     aria-selected="false"
                                   >
-                                    Агуулга
+                                    Шинэ үг
                                   </button>
                                 </li>
                               </ul>
                               <div class="tab-content">
-                                <div class="tab-pane fade show active" id="title" role="tabpanel">
+                                <div class="tab-pane fade show active" id="activity1" role="tabpanel">
                                   <p>
-                                    Хэл яриа
+                                  <?=$data["activity1"];?>
                                   </p>
                                   
                                 </div>
-                                <div class="tab-pane fade" id="date" role="tabpanel">
+                                <div class="tab-pane fade" id="activity2" role="tabpanel">
                                   <p>
-                                    2023,02,13
+                                  <?=$data["activity2"];?>
                                   </p>
                                   
                                 </div>
-                                <div class="tab-pane fade" id="description" role="tabpanel">
+                                <div class="tab-pane fade" id="word" role="tabpanel">
                                   <p>
-                                    Санаа бодлоо илэрхийлэн ярих
+                                  <?=$data["word"];?>
                                   </p>
                                   
                                 </div>
                               </div>
                             </div>
-                        </div>
+                        </div>   
+                    </div>   
                     </div>
-                </div>
-                <div class="col-xl-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h6 class="text-muted">Цагаан сар</h6>
-                            <div class="nav-align-top mb-4">
+                    <div class="col-xl-6">
+                        <div class="card mt-4">
+                            <div class="card-body">
+                                <!-- <h6 class="text-muted">Зураг</h6> -->
+                                <div class="nav-align-top mb-6">
                                 <ul class="nav nav-pills mb-3" role="tablist">
-                                <li class="nav-item">
+                                    <li class="nav-item">
                                     <button
-                                    type="button"
-                                    class="nav-link active"
-                                    role="tab"
-                                    data-bs-toggle="tab"
-                                    data-bs-target="#purpose"
-                                    aria-controls="purpose"
-                                    aria-selected="true"
+                                        type="button"
+                                        class="nav-link active"
+                                        role="tab"
+                                        data-bs-toggle="tab"
+                                        data-bs-target="#image1"
+                                        aria-controls="image1"
+                                        aria-selected="true"
                                     >
-                                    Зорилго
+                                        Зураг 1
                                     </button>
-                                </li>
-                                <li class="nav-item">
+                                    </li>
+                                    <li class="nav-item">
                                     <button
-                                    type="button"
-                                    class="nav-link"
-                                    role="tab"
-                                    data-bs-toggle="tab"
-                                    data-bs-target="#method"
-                                    aria-controls="method"
-                                    aria-selected="false"
+                                        type="button"
+                                        class="nav-link"
+                                        role="tab"
+                                        data-bs-toggle="tab"
+                                        data-bs-target="#image2"
+                                        aria-controls="image2"
+                                        aria-selected="false"
                                     >
-                                    Сургалтын арга
+                                        Зураг 2
                                     </button>
-                                </li>
-                                <li class="nav-item">
+                                    </li>
+                                    <li class="nav-item">
                                     <button
-                                    type="button"
-                                    class="nav-link"
-                                    role="tab"
-                                    data-bs-toggle="tab"
-                                    data-bs-target="#tools"
-                                    aria-controls="tools"
-                                    aria-selected="false"
+                                        type="button"
+                                        class="nav-link"
+                                        role="tab"
+                                        data-bs-toggle="tab"
+                                        data-bs-target="#image3"
+                                        aria-controls="image3"
+                                        aria-selected="false"
                                     >
-                                    Хэрэгсэл
+                                        Зураг 3
                                     </button>
-                                </li>
+                                    </li>
                                 </ul>
                                 <div class="tab-content">
-                                <div class="tab-pane fade show active" id="purpose" role="tabpanel">
-                                    <p>
-                                    Icing pastry pudding oat cake. Lemon drops cotton candy caramels cake caramels sesame snaps powder. Bear claw candy topping.Tootsie roll fruitcake cookie. Dessert topping pie. Jujubes wafer carrot cake jelly. Bonbon jelly-o jelly-o ice cream jelly beans candy canes cake bonbon. Cookie jelly beans marshmallow jujubes sweet.
-                                    </p>
+                                    <div class="tab-pane fade show active" id="image1" role="tabpanel">
+                                    <img class="card-img-top" src="./assets/img/elements/1.jpg" alt="Card image cap" />
                                     
-                                </div>
-                                <div class="tab-pane fade" id="method" role="tabpanel">
-                                    <p>
-                                    2023,02,13
-                                    </p>
+                                    </div>
+                                    <div class="tab-pane fade" id="image2" role="tabpanel">
+                                    <img class="card-img-top" src="./assets/img/elements/2.jpg" alt="Card image cap" />
                                     
-                                </div>
-                                <div class="tab-pane fade" id="tools" role="tabpanel">
-                                    <p>
-                                    Санаа бодлоо илэрхийлэн ярих
-                                    </p>
+                                    </div>
+                                    <div class="tab-pane fade" id="image3" role="tabpanel">
+                                    <img class="card-img-top" src="./assets/img/elements/3.jpg" alt="Card image cap" />
                                     
-                                </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-xl-6">
-                <div class="card mt-4">
-                    <div class="card-body">
-                        <!-- <h6 class="text-muted">Цагаан сар</h6> -->
-                        <div class="nav-align-top mb-4">
-                          <ul class="nav nav-pills mb-3" role="tablist">
-                            <li class="nav-item">
-                              <button
-                                type="button"
-                                class="nav-link active"
-                                role="tab"
-                                data-bs-toggle="tab"
-                                data-bs-target="#activity1"
-                                aria-controls="activity1"
-                                aria-selected="true"
-                              >
-                                Үйл ажилгаа 1
-                              </button>
-                            </li>
-                            <li class="nav-item">
-                              <button
-                                type="button"
-                                class="nav-link"
-                                role="tab"
-                                data-bs-toggle="tab"
-                                data-bs-target="#activity2"
-                                aria-controls="activity2"
-                                aria-selected="false"
-                              >
-                                Үйл ажилгаа 2
-                              </button>
-                            </li>
-                            <li class="nav-item">
-                              <button
-                                type="button"
-                                class="nav-link"
-                                role="tab"
-                                data-bs-toggle="tab"
-                                data-bs-target="#word"
-                                aria-controls="word"
-                                aria-selected="false"
-                              >
-                                Шинэ үг
-                              </button>
-                            </li>
-                          </ul>
-                          <div class="tab-content">
-                            <div class="tab-pane fade show active" id="activity1" role="tabpanel">
-                              <p>
-                              Icing pastry pudding oat cake. Lemon drops cotton candy caramels cake caramels sesame snaps powder. Bear claw candy topping.Tootsie roll fruitcake cookie. Dessert topping pie. Jujubes wafer carrot cake jelly. Bonbon jelly-o jelly-o ice cream jelly beans candy canes cake bonbon. Cookie jelly beans marshmallow jujubes sweet.
-                              </p>
-                              
-                            </div>
-                            <div class="tab-pane fade" id="activity2" role="tabpanel">
-                              <p>
-                              Icing pastry pudding oat cake. Lemon drops cotton candy caramels cake caramels sesame snaps powder. Bear claw candy topping.Tootsie roll fruitcake cookie. Dessert topping pie. Jujubes wafer carrot cake jelly. 
-                              </p>
-                              
-                            </div>
-                            <div class="tab-pane fade" id="word" role="tabpanel">
-                              <p>
-                              Icing pastry pudding oat cake. Lemon drops cotton candy caramels cake caramels sesame snaps powder. Bear claw candy topping.Tootsie roll fruitcake cookie. Dessert topping pie. Jujubes wafer carrot cake jelly. Bonbon jelly-o jelly-o ice cream jelly beans candy canes cake bonbon. Cookie jelly beans marshmallow jujubes sweet.Icing pastry pudding oat cake. Lemon drops cotton candy caramels cake caramels sesame snaps powder. Bear claw candy topping.Tootsie roll fruitcake cookie. Dessert topping pie. Jujubes wafer carrot cake jelly. Bonbon jelly-o jelly-o ice cream jelly beans candy canes cake bonbon. Cookie jelly beans marshmallow jujubes sweet.
-                              </p>
-                              
-                            </div>
-                          </div>
-                        </div>
-                    </div>   
-                </div>   
-                </div>
-                <div class="col-xl-6">
-                    <div class="card mt-4">
-                        <div class="card-body">
-                            <!-- <h6 class="text-muted">Зураг</h6> -->
-                            <div class="nav-align-top mb-6">
-                            <ul class="nav nav-pills mb-3" role="tablist">
-                                <li class="nav-item">
-                                <button
-                                    type="button"
-                                    class="nav-link active"
-                                    role="tab"
-                                    data-bs-toggle="tab"
-                                    data-bs-target="#image1"
-                                    aria-controls="image1"
-                                    aria-selected="true"
-                                >
-                                    Зураг 1
-                                </button>
-                                </li>
-                                <li class="nav-item">
-                                <button
-                                    type="button"
-                                    class="nav-link"
-                                    role="tab"
-                                    data-bs-toggle="tab"
-                                    data-bs-target="#image2"
-                                    aria-controls="image2"
-                                    aria-selected="false"
-                                >
-                                    Зураг 2
-                                </button>
-                                </li>
-                                <li class="nav-item">
-                                <button
-                                    type="button"
-                                    class="nav-link"
-                                    role="tab"
-                                    data-bs-toggle="tab"
-                                    data-bs-target="#image3"
-                                    aria-controls="image3"
-                                    aria-selected="false"
-                                >
-                                    Зураг 3
-                                </button>
-                                </li>
-                            </ul>
-                            <div class="tab-content">
-                                <div class="tab-pane fade show active" id="image1" role="tabpanel">
-                                <img class="card-img-top" src="./assets/img/elements/1.jpg" alt="Card image cap" />
-                                
-                                </div>
-                                <div class="tab-pane fade" id="image2" role="tabpanel">
-                                <img class="card-img-top" src="./assets/img/elements/2.jpg" alt="Card image cap" />
-                                
-                                </div>
-                                <div class="tab-pane fade" id="image3" role="tabpanel">
-                                <img class="card-img-top" src="./assets/img/elements/3.jpg" alt="Card image cap" />
-                                
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                </div>
-                </div>
-              </div>
-
+                  </div>
+                  <?
+                            }
+                  }
+              ?>
               <!-- Examples -->
 
             <!-- Footer -->
