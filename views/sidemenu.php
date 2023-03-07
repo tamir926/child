@@ -159,7 +159,7 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="app-access-roles.html" class="menu-link">
+                  <a href="report" class="menu-link">
                     <div data-i18n="Тайлан 1">Тайлан 1</div>
                   </a>
                 </li>
@@ -218,7 +218,7 @@
                 
                   <ul class="menu-sub">
                   <li class="menu-item">
-                  <a href="plan" class="menu-link">
+                  <a href="in_percent" class="menu-link">
                     <div data-i18n="Хичээлийн хувиар">Хичээлийн хувиар</div>
                   </a>
                   </li>

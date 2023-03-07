@@ -52,7 +52,10 @@ RewriteRule ^tutorials?$ tutorials.php
 RewriteRule ^users?$ users.php
 RewriteRule ^avatars?$ avatars.php
 RewriteRule ^plan?$ plan.php
+RewriteRule ^report?$ report.php
+RewriteRule ^report_detail?$ report_detail.php
 RewriteRule ^plan_detail?$ plan_detail.php
+RewriteRule ^in_percent?$ in_percent.php
 
 RewriteRule ^children/(.*) children.php?id=$1
 RewriteRule ^calendar/(.*) calendar.php?id=$1

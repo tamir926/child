@@ -1916,7 +1916,7 @@ progress {
 }
 
 .table-responsive {
-  overflow-x: auto;
+  overflow-x: clip;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -11594,11 +11594,11 @@ button.list-group-item-gray.active {
 }
 
 .text-wrap {
-  white-space: normal !important;
+  white-space: break-spaces !important;
 }
 
 .text-nowrap {
-  white-space: nowrap !important;
+  white-space: break-spaces !important;
 }
 
 /* rtl:begin:remove */
