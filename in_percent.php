@@ -31,7 +31,6 @@ require_once("views/init.php");
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
-
             <div class="container-xxl flex-grow-1 container-p-y">
               <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Үйл ажилгааны тайлан /</span> Хичээлийн хувиар</h4>
 
@@ -701,10 +700,10 @@ require_once("views/init.php");
                                                 <div class="tab-pane fade" id="thu5" role="tabpanel">
                                                     <textarea class="form-control" id="report" name="thu5" rows="3"><?=$data["thu5"];?></textarea>
                                                 </div>
-                                                <div class="tab-pane fade" id="thu5" role="tabpanel">
+                                                <div class="tab-pane fade" id="thu6" role="tabpanel">
                                                     <textarea class="form-control" id="report" name="thu6" rows="3"><?=$data["thu6"];?></textarea>
                                                 </div>
-                                                <div class="tab-pane fade" id="thu5" role="tabpanel">
+                                                <div class="tab-pane fade" id="thu7" role="tabpanel">
                                                     <textarea class="form-control" id="report" name="thu7" rows="3"><?=$data["thu7"];?></textarea>
                                                 </div>
                                             </div>
@@ -839,7 +838,9 @@ require_once("views/init.php");
                                         </div>   
                                     </div>   
                             </div>
-                            <input type="submit" class="btn btn-outline-success mt-3 mb-3" value="Хадгалах">
+                            
+                            <input type="submit" class="btn btn-outline-success mt-3 " value="Хадгалах">
+                            <!-- <a class="btn btn-success mt-3">Засах</a> -->
                         </form>    
                         <?
                     }
@@ -893,7 +894,7 @@ require_once("views/init.php");
                         mon7='$mon7', tue1='$tue1',tue2='$tue2', tue3='$tue3',tue4='$tue4',tue5='$tue5',tue6='$tue6',tue7='$tue7',wed1='$wed1',wed2='$wed2',wed3='$wed3',wed4='$wed4',wed5='$wed5',wed6='$wed6',wed7='$wed7',thu1='$thu1',
                         thu2='$thu2',thu3='$thu3',thu4='$thu4',thu5='$thu5',thu6='$thu6',thu7='$thu7',fri1='$fri1',fri2='$fri2', fri3='$fri3',fri4='$fri4',fri5='$fri5',fri6='$fri6',fri7='$fri7' WHERE id=1";
 
-                        echo $sql;
+                        
 
                         if (mysqli_query($conn,$sql))
                         {
@@ -917,9 +918,9 @@ require_once("views/init.php");
                             <?
                         }
                         ?>
-                        <a class="btn btn-success" href="report_detail?action=edit&id=<?=$report_id;?>">Засах</a>
-                        <a class="btn btn-primary" href="report_detail?action=detail&id=<?=$report_id;?>">Дэлгэрэнгүй</a>
-                        <a class="btn btn-primary" href="report">Бүх мэдээ</a>
+                        <a class="btn btn-success" href="in_percent?action=edit">Засах</a>
+                       
+                        <a class="btn btn-primary" href="in_percent">Хувиарлуу буцах</a>
                         <?
                         
                     }

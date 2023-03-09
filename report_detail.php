@@ -57,7 +57,7 @@ require_once("views/init.php");
                                 <span class="text-muted fw-light">Тайлан бичсэн багш/</span> <?=$data["teacher"];?>
                             </h4>
                             <a class="btn btn-outline-success mb-3" href="report_detail?action=edit&id=<?=$report_id;?>">Засах</a>
-                            <a class="btn btn-outline-danger mb-3" href="report?action=delete&id=<?=$report_id;?>">Устгах</a>
+                            <a class="btn btn-outline-danger mb-3" href="report_detail?action=delete&id=<?=$report_id;?>">Устгах</a>
                             <div class="col-xl-12">
                                 <div class="card">
                                 <h5 class="card-header"><?=$data["dd"];?>. <?=$data["report"];?></h5>
@@ -276,6 +276,174 @@ require_once("views/init.php");
                     <a class="btn btn-primary" href="report_detail?action=detail&id=<?=$report_id;?>">Дэлгэрэнгүй</a>
                     <a class="btn btn-primary" href="report">Бүх мэдээ</a>
                     <?
+                    
+                }
+                ?>
+
+
+
+                <?
+                if ($action=="new")
+                {
+                    ?>
+                    <h4 class="fw-bold py-3 mb-4 ">
+                        <span class="text-muted fw-light">Шинэ тайлан нэмэх
+                    </h4>
+                    <form action="report_detail?action=adding" method="post" enctype="multipart/form-data">
+                      <section id="input-group-basic">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="card">
+                              <div class="card mb-4">
+                                  <h5 class="card-header">Тайлан нэмэх</h5>
+                                  <div class="card-body">
+                                    <input type="hidden" name="report_id" value="<?=$report_id;?>">
+                                    <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Дэс дугаар</label>
+                                      
+                                      <div class="card mb-4">
+                                        <input
+                                        type="text"
+                                        class="form-control"
+                                        id="defaultFormControlInput"
+                                        placeholder="00"
+                                        aria-describedby="defaultFormControlHelp"
+                                        name="dd"
+                                        />
+                                      </div>
+                                    </div>
+                                    <label for="exampleFormControlTextarea1" class="form-label">Багш</label>
+                                    <textarea class="form-control" id="report" name="teacher" rows="3"></textarea>
+                                    <div class="mb-3">
+                                      <label for="exampleFormControlTextarea1" class="form-label">Жил</label>
+                                      
+                                      <div class="card mb-4">
+                                        <input
+                                        type="text"
+                                        class="form-control"
+                                        id="defaultFormControlInput"
+                                        placeholder="0000"
+                                        aria-describedby="defaultFormControlHelp"
+                                        name="years"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div class="mb-3">
+                                      <label for="exampleFormControlTextarea1" class="form-label">Сар</label>
+                                      
+                                      <div class="card mb-4">
+                                        <input
+                                        type="text"
+                                        class="form-control"
+                                        id="defaultFormControlInput"
+                                        placeholder="00"
+                                        aria-describedby="defaultFormControlHelp"
+                                        name="month"
+                                        />
+                                      </div>
+                                    </div>
+                                    <label for="exampleFormControlTextarea1" class="form-label">Тайлан</label>
+                                    <textarea class="form-control" id="report" name="report" rows="3"></textarea>
+                                    <label for="exampleFormControlTextarea1" class="form-label">Зураг оруулах</label>
+                                    <div class="input-group mt-3">
+                                      <input type="file" name="image">
+                                    </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                      <input type="submit" class="btn btn-outline-success mt-3" value="Нэмэх">
+                    </form>
+                    <?
+                }
+                ?>
+
+
+                <?
+                if ($action=="adding")
+                {
+                  $dd = $_POST["dd"];
+                  $teacher = $_POST["teacher"];
+                  $years = $_POST["years"];
+                  $month = $_POST["month"];
+                  $report = $_POST["report"];
+                  $image = $_POST["image"];
+
+                  $sql = "INSERT INTO report (dd,teacher,years,month,report,image)  VALUES ('$dd','$teacher','$years','$month','$report','$image')";
+
+                    if (mysqli_query($conn,$sql))
+                    {
+                        $report_id  = mysqli_insert_id ($conn);
+                        ?>
+                        <div class="alert alert-success" role="alert">
+                            <div class="alert-body">
+                               Амжилттай үүслээ
+                            </div>
+                        </div>
+                        <?
+                    }
+                    else 
+                    {
+                        ?>
+                        <div class="alert alert-danger" role="alert">
+                            <div class="alert-body">
+                               Алдаа гарлаа. <?=mysqli_error($conn);?>
+                            </div>
+                        </div>
+                        <?
+                    }
+                    ?>
+                    <a class="btn btn-success" href="report_detail?action=edit&id=<?=$report_id;?>">Засах</a>
+                    <a class="btn btn-primary" href="report_detail?action=detail&id=<?=$report_id;?>">Дэлгэрэнгүй</a>
+                    <a class="btn btn-primary" href="report">Бүх хөтөлбөр</a>
+                    <?
+                    
+                }
+                ?>
+
+
+
+                <?
+                if ($action=="delete")
+                {
+                    $report_id = $_GET["id"];
+                    $sql = "SELECT *FROM report WHERE id='$report_id'";
+                    $result = mysqli_query($conn,$sql);
+                    if (mysqli_num_rows($result)==1)
+                    {
+                        $data = mysqli_fetch_array($result);
+                        $image = $data["image"];
+                        if (file_exists('./'.$image)) unlink('./'.$image);
+                        $sql = "DELETE FROM report WHERE id=$report_id";
+                        
+                        if (mysqli_query($conn,$sql))
+                        {
+                            ?>
+                            <div class="alert alert-success" role="alert">
+                                <div class="alert-body">
+                                   Амжилттай устгалаа
+                                </div>
+                            </div>
+                            <?
+                        }
+                        else 
+                        {
+                            ?>
+                            <div class="alert alert-danger" role="alert">
+                                <div class="alert-body">
+                                   Алдаа гарлаа. <?=mysqli_error($conn);?>
+                                </div>
+                            </div>
+                            <?
+                        }
+                        ?>
+                        <a class="btn btn-primary" href="report">Жагсаалт</a>
+                        <?                        
+                    }
+                    else header("location:report_detail");
+                    
                     
                 }
                 ?>

@@ -33,6 +33,7 @@ require_once("views/init.php");
 
             <div class="container-xxl flex-grow-1 container-p-y">
               <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Тайлан /</span> тайлан1</h4>
+              <a class="btn btn-outline-success mb-3" href="report_detail?action=new">Тайлан нэмэх</a>
 
               <!-- Examples -->
               <div class="row mb-5">

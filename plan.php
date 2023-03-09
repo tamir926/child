@@ -32,9 +32,10 @@ require_once("views/init.php");
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Үйл ажилгааны тайлан /</span> Хичээлийн хөтөлбөр</h4>
-
-              <!-- Examples -->
+              <h4 class="fw-bold py-3 mb-4">
+                <span class="text-muted fw-light">Үйл ажилгааны тайлан /</span> Хичээлийн хөтөлбөр
+              </h4>
+              <a class="btn btn-outline-success mb-3" href="plan_detail?action=new">Хөтөлбөр нэмэх</a>
               <div class="row mb-5">
               <?
               $sql = "SELECT *FROM plan ORDER BY id";
