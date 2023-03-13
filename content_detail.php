@@ -178,17 +178,13 @@ require_once("views/init.php");
                     {
                         $data = mysqli_fetch_array($result);
                         $content_id = $data["id"];
-                        $content_name = $data["name"];
-                        $content_title = $data["title"];
-                        $content_date = $data["date"];
+                        $content_topic = $data["topic"];
                         $content_description = $data["description"];
-                        $content_purpose = $data["purpose"];
-                        $content_method = $data["method"];
-                        $content_tools = $data["tools"];
-                        $content_activity1 = $data["activity1"];
-                        $content_activity2 = $data["activity2"];
-                        $content_word = $data["word"];
+                        $content_directions = $data["directions"];
                         $content_image = $data["image"];
+                        $content_video = $data["video"];
+                        $content_user = $data["user"];
+                       
                         ?>
 
                         <?
@@ -196,67 +192,49 @@ require_once("views/init.php");
                     ?>
                     <form action="content_detail?action=editing" method="post"  enctype="multipart/form-data">
                         <h4 class="fw-bold py-3 mb-4 ">
-                            <span class="text-muted fw-light">Хичээлийн хөтөлбөр/</span> <?=$data["name"];?>
+                            <span class="text-muted fw-light">Контент /</span> <?=$data["topic"];?>
                         </h4>
                         <div class="col-md-12">
-                          <div class="card mb-4">
-                              <h5 class="card-header">Хөтөлбөр засварлах</h5>
-                              <div class="card-body">
-                              <input type="hidden" name="content_id" value="<?=$content_id;?>">
-                                  
-                                  
-                                  <label for="exampleFormControlTextarea1" class="form-label">Хөтөлбөрийн нэр</label>
-                                  <textarea class="form-control" id="report" name="name" rows="3"><?=$data["name"];?></textarea>
-                                  <label for="exampleFormControlTextarea1" class="form-label">Суралцахуйн чиглэл</label>
-                                  <textarea class="form-control" id="report" name="title" rows="3"><?=$data["title"];?></textarea>
-                                  <div class="mb-3">
-                                    <label for="exampleFormControlTextarea1" class="form-label">Он сар</label>
-                                    
-                                    <div class="card mb-4">
-                                      <input
-                                      type="text"
-                                      class="form-control"
-                                      id="defaultFormControlInput"
-                                      placeholder="<?=$data["date"];?>"
-                                      aria-describedby="defaultFormControlHelp"
-                                      name="date"
-                                      />
+                            <div class="card mb-4">
+                            <h5 class="card-header">Контент засварлах</h5>
+                                <div class="card-body">
+                                    <input type="hidden" name="content_id" value="<?=$content_id;?>">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Сэдэв</label>
+                                    <textarea class="form-control" id="report" name="topic" rows="3"><?=$data["topic"];?></textarea>
+                                    <label for="exampleFormControlTextarea1" class="form-label">Агуулга</label>
+                                    <textarea class="form-control" id="report" name="description" rows="3"><?=$data["description"];?></textarea>
+                                    <label for="exampleFormControlTextarea1" class="form-label">Чиглэл</label>
+                                    <textarea class="form-control" id="report" name="directions" rows="3"><?=$data["directions"];?></textarea>
+                                    <label for="exampleFormControlTextarea1" class="form-label">Хэрэглэгч</label>
+                                    <textarea class="form-control" id="report" name="user" rows="3"><?=$data["user"];?></textarea>
+                                    <label for="formFile" class="form-label mt-3">Зураг оруулах</label>
+                                    <?
+                                    if ($content_image<>"")
+                                    {
+                                        ?>
+                                        <img src="<?=$content_image;?>" class="w-100">
+                                        <?
+                                    }
+                                    ?>
+                                    <div class="input-group">
+                                        <input type="file" name="image">
                                     </div>
-                                  </div>
-                                  <label for="exampleFormControlTextarea1" class="form-label">Агуулга</label>
-                                  <textarea class="form-control" id="report" name="description" rows="3"><?=$data["description"];?></textarea>
-                                  <label for="exampleFormControlTextarea1" class="form-label">Зорилго</label>
-                                  <textarea class="form-control" id="report" name="purpose" rows="3"><?=$data["purpose"];?></textarea>
-                                  <label for="exampleFormControlTextarea1" class="form-label">Сургалтын арга</label>
-                                  <textarea class="form-control" id="report" name="method" rows="3"><?=$data["method"];?></textarea>
-                                  <label for="exampleFormControlTextarea1" class="form-label">Хэрэгсэл</label>
-                                  <textarea class="form-control" id="report" name="tools" rows="3"><?=$data["tools"];?></textarea>
-                                  <label for="exampleFormControlTextarea1" class="form-label">Үйл ажиллагаа1</label>
-                                  <textarea class="form-control" id="report" name="activity1" rows="3"><?=$data["activity1"];?></textarea>
-                                  <label for="exampleFormControlTextarea1" class="form-label">Үйл ажиллагаа2</label>
-                                  <textarea class="form-control" id="report" name="activity2" rows="3"><?=$data["activity2"];?></textarea>
-                                  <label for="exampleFormControlTextarea1" class="form-label">Шинэ үгийн тайлбар</label>
-                                  <textarea class="form-control" id="report" name="word" rows="3"><?=$data["word"];?></textarea>
-                                  <div class="mb-3">
-                                      <label for="formFile" class="form-label">Зураг оруулах</label>
-
-                                      <?
-                                      if ($content_image<>"")
-                                      {
-                                          ?>
-                                          <img src="<?=$content_image;?>" class="w-100">
-                                          <?
-                                          
-                                      }
-                                      ?>
-                                      <div class="input-group">
-                                          <input type="file" name="image">
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
+                                    <label for="formFile" class="form-label mt-3">Видео оруулах</label>
+                                    <?
+                                    if ($content_image<>"")
+                                    {
+                                        ?>
+                                        <img src="<?=$content_image;?>" class="w-100">
+                                        <?
+                                    }
+                                    ?>
+                                    <div class="input-group">
+                                        <input type="file" name="video">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                          <input type="submit" class="btn btn-outline-success mb-3" value="Хадгалах">
+                        <input type="submit" class="btn btn-outline-success mb-3" value="Хадгалах">
                     </form>    
                     <?
                 }
@@ -268,16 +246,11 @@ require_once("views/init.php");
                 if ($action=="editing")
                 {
                     $content_id = $_POST["content_id"];
-                    $name = $_POST["name"];
-                    $title = $_POST["title"];
-                    $date = $_POST["date"];
+                    $topic = $_POST["topic"];
                     $description = $_POST["description"];
-                    $purpose = $_POST["purpose"];
-                    $method = $_POST["method"];
-                    $tools = $_POST["tools"];
-                    $activity1 = $_POST["activity1"];
-                    $activity2 = $_POST["activity2"];
-                    $word = $_POST["word"];
+                    $directions = $_POST["directions"];
+                    $user = $_POST["user"];
+                    
 
                     if(isset($_FILES['image']) && $_FILES['image']['name']!="")
                     {
@@ -297,7 +270,7 @@ require_once("views/init.php");
                             }
                     }
 
-                    $sql = "UPDATE content SET name='$name',title='$title',date='$date',description='$description',purpose='$purpose',method='$method', tools='$tools', activity1='$activity1', activity2='$activity2', word='$word' WHERE id='$content_id'";
+                    $sql = "UPDATE content SET topic='$topic',description='$description',directions='$directions',user='$user' WHERE id='$content_id'";
 
 
                     if (mysqli_query($conn,$sql))
@@ -381,7 +354,7 @@ require_once("views/init.php");
                 {
                     ?>
                     <h4 class="fw-bold py-3 mb-4 ">
-                        <span class="text-muted fw-light">Шинэ хичээлийн хөтөлбөр нэмэх
+                        <span class="text-muted fw-light">Шинэ контент нэмэх
                     </h4>
                     <form action="content_detail?action=adding" method="post" enctype="multipart/form-data">
                       <section id="input-group-basic">
@@ -389,44 +362,26 @@ require_once("views/init.php");
                           <div class="col-md-12">
                             <div class="card">
                               <div class="card mb-4">
-                                  <h5 class="card-header">Хөтөлбөр нэмэх</h5>
+                                  <h5 class="card-header">Контент нэмэх</h5>
                                   <div class="card-body">
                                     <input type="hidden" name="content_id" value="<?=$content_id;?>">
-                                    <label for="exampleFormControlTextarea1" class="form-label">Хөтөлбөрийн нэр</label>
-                                    <textarea class="form-control" id="report" name="name" rows="3"></textarea>
-                                    <label for="exampleFormControlTextarea1" class="form-label">Суралцахуйн чиглэл</label>
-                                    <textarea class="form-control" id="report" name="title" rows="3"></textarea>
-                                    <div class="mb-3">
-                                      <label for="exampleFormControlTextarea1" class="form-label">Он сар</label>
-                                      
-                                      <div class="card mb-4">
-                                        <input
-                                        type="text"
-                                        class="form-control"
-                                        id="defaultFormControlInput"
-                                        placeholder="0000-00-00"
-                                        aria-describedby="defaultFormControlHelp"
-                                        name="date"
-                                        />
-                                      </div>
-                                    </div>
+                                    <label for="exampleFormControlTextarea1" class="form-label">Сэдэв</label>
+                                    <textarea class="form-control" id="report" name="topic" rows="3"></textarea>
                                     <label for="exampleFormControlTextarea1" class="form-label">Агуулга</label>
                                     <textarea class="form-control" id="report" name="description" rows="3"></textarea>
+                                    <label for="exampleFormControlTextarea1" class="form-label">Чиглэл</label>
+                                    <textarea class="form-control" id="report" name="directions" rows="3"></textarea>
                                     <label for="exampleFormControlTextarea1" class="form-label">Зорилго</label>
                                     <textarea class="form-control" id="report" name="purpose" rows="3"></textarea>
-                                    <label for="exampleFormControlTextarea1" class="form-label">Сургалтын арга</label>
-                                    <textarea class="form-control" id="report" name="method" rows="3"></textarea>
-                                    <label for="exampleFormControlTextarea1" class="form-label">Хэрэгсэл</label>
-                                    <textarea class="form-control" id="report" name="tools" rows="3"></textarea>
-                                    <label for="exampleFormControlTextarea1" class="form-label">Үйл ажиллагаа1</label>
-                                    <textarea class="form-control" id="report" name="activity1" rows="3"></textarea>
-                                    <label for="exampleFormControlTextarea1" class="form-label">Үйл ажиллагаа2</label>
-                                    <textarea class="form-control" id="report" name="activity2" rows="3"></textarea>
-                                    <label for="exampleFormControlTextarea1" class="form-label">Шинэ үгийн тайлбар</label>
-                                    <textarea class="form-control" id="report" name="word" rows="3"></textarea>
-                                    <label for="exampleFormControlTextarea1" class="form-label">Зураг оруулах</label>
-                                    <div class="input-group mt-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Хэрэглэгч</label>
+                                    <textarea class="form-control" id="report" name="user" rows="3"></textarea>
+                                    <label for="exampleFormControlTextarea1" class="form-label mt-3">Зураг оруулах</label>
+                                    <div class="input-group mt-2">
                                       <input type="file" name="image">
+                                    </div>
+                                    <label for="exampleFormControlTextarea1" class="form-label mt-3">Видео оруулах</label>
+                                    <div class="input-group mt-2">
+                                      <input type="file" name="video">
                                     </div>
                                   </div>
                               </div>
@@ -445,19 +400,14 @@ require_once("views/init.php");
               <?
                 if ($action=="adding")
                 {
-                  $name = $_POST["name"];
-                  $title = $_POST["title"];
-                  $date = $_POST["date"];
+                  $topic = $_POST["topic"];
                   $description = $_POST["description"];
-                  $purpose = $_POST["purpose"];
-                  $method = $_POST["method"];
-                  $tools = $_POST["tools"];
-                  $activity1 = $_POST["activity1"];
-                  $activity2 = $_POST["activity2"];
-                  $word = $_POST["word"];
+                  $directions = $_POST["directions"];
+                  $user = $_POST["user"];
                   $image = $_POST["image"];
+                  $video = $_POST["video"];
 
-                  $sql = "INSERT INTO content (name,title,date,description,purpose,method,tools,activity1,activity2,word,image)  VALUES ('$name','$title','$date','$description','$purpose','$method','$tools','$activity1','$activity2','$word','$image')";
+                  $sql = "INSERT INTO content (topic,description,directions,user,image,video)  VALUES ('$topic','$description','$directions','$user','$image','$video')";
 
                     if (mysqli_query($conn,$sql))
                     {
