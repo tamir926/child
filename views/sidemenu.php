@@ -230,6 +230,13 @@
                   </ul>
                 </li>
             </li>
+            <li class="menu-item">
+              <a href="content" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-video"></i>
+                <div data-i18n="Контент">Контент</div>
+              </a>
+            </li>
+            
 
           </ul>
         </aside>

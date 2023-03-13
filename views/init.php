@@ -27,6 +27,15 @@
     <link rel="stylesheet" href="<?=$path?>assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
     <link rel="stylesheet" href="<?=$path?>assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" />
     <link rel="stylesheet" href="<?=$path?>assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" />
+    <link rel="stylesheet" href="<?=$path?>assets/vendor/libs/swiper/swiper.css" />
+    <link rel="stylesheet" href="<?=$path?>assets/vendor/css/rtl/theme-default.css" />
+    <link rel="stylesheet" href="<?=$path?>assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="<?=$path?>assets/vendor/libs/node-waves/node-waves.css" />
+    <link rel="stylesheet" href="<?=$path?>assets/vendor/libs/typeahead-js/typeahead.css" />
+ 
+
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="<?=$path?>assets/vendor/css/pages/ui-carousel.css" />
     <script src="<?=$path?>assets/vendor/js/helpers.js"></script>
     <script src="<?=$path?>assets/js/config.js"></script>
   </head>
